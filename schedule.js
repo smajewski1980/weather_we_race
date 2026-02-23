@@ -14,6 +14,7 @@ class Race {
       trackName: this.track.trackName,
       trackLocation: this.track.trackLocation,
       trackLength: this.track.trackLength,
+      trackGeo: this.track.trackGeo,
     };
     return info;
   }

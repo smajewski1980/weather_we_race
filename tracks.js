@@ -7,6 +7,7 @@ class RaceTrack {
     trackPhoto,
     trackFacts,
     trackName,
+    trackCoords,
   ) {
     this.trackLength = trackLength;
     this.trackLocation = trackLocation;
@@ -15,6 +16,7 @@ class RaceTrack {
     this.trackPhoto = trackPhoto;
     this.trackFacts = trackFacts;
     this.trackName = trackName;
+    this.trackGeo = [trackCoords[0], trackCoords[1]];
   }
 
   getWeather() {
@@ -37,6 +39,7 @@ const tracks = {
     "image path",
     ["opened in 1959", "31deg banking in the turns, 18deg in the tri-oval"],
     "Daytona International Speedway",
+    ["29.1852", "-81.0700"],
   ),
   Atlanta: new RaceTrack(
     "1.54 mile",
@@ -46,6 +49,7 @@ const tracks = {
     "image path",
     ["opened in 1960", "28deg banking"],
     "Echopark Speedway",
+    ["33.3813", "-84.3160"],
   ),
   COTA: new RaceTrack(
     "3.41 mile",
@@ -55,6 +59,7 @@ const tracks = {
     "image path",
     ["opened in 2012", "has 20 turns"],
     "Circuit Of The Americas",
+    ["30.1329", "-97.6375"],
   ),
   Phoenix: new RaceTrack(
     "1 mile",
@@ -64,6 +69,7 @@ const tracks = {
     "image path",
     ["opened in 1964", "reconfigured in 2018"],
     "Phoenix Raceway",
+    ["33.3756", "-112.3116"],
   ),
   LasVegas: new RaceTrack(
     "1.5 mile",
@@ -73,6 +79,7 @@ const tracks = {
     "image path",
     ["opened in 1996", "20deg banking in turns, 9-12deg on straightaways"],
     "Las Vegas Motor Speedway",
+    ["36.2733", "-115.0113"],
   ),
   Darlington: new RaceTrack(
     "1.366 mile",
@@ -82,6 +89,7 @@ const tracks = {
     "image path",
     ["opened in 1950", "25deg banking in 1 and 2, 23deg in 3 and 4"],
     "Darlington Raceway",
+    ["34.2952", "-79.9063"],
   ),
   Martinsville: new RaceTrack(
     ".526 mile",
@@ -91,6 +99,7 @@ const tracks = {
     "image path",
     ["opened in 1947", "12deg banking"],
     "Martinsville Speedway",
+    ["36.6536", "-79.8517"],
   ),
   Bristol: new RaceTrack(
     ".533 mile",
@@ -100,6 +109,7 @@ const tracks = {
     "image path",
     ["opened in 1961", "24-28deg prog banking in turns"],
     "Bristol Motor Speedway",
+    ["36.5159", "-82.2571"],
   ),
   Kansas: new RaceTrack(
     "1.5 mile",
@@ -109,6 +119,7 @@ const tracks = {
     "image path",
     ["opened in 2001", "17-20deg banking in turns, 9-11deg on frontstretch"],
     "Kansas Speedway",
+    ["39.1159", "-94.8334"],
   ),
   Talladega: new RaceTrack(
     "2.66 mile",
@@ -118,6 +129,7 @@ const tracks = {
     "image path",
     ["opened in 1969", "33deg banking in turns"],
     "Talledega Superspeedway",
+    ["33.5673", "-86.0671"],
   ),
   Texas: new RaceTrack(
     "1.5 mile",
@@ -130,6 +142,7 @@ const tracks = {
       "20deg banking in 1 and 2, 24deg in 3 and 4, 5deg on straights",
     ],
     "Texas Motor Speedway",
+    ["33.0367", "-97.2828"],
   ),
   WatkinsGlen: new RaceTrack(
     "2.45 mile",
@@ -139,6 +152,7 @@ const tracks = {
     "image path",
     ["opened in 1948", "141 ft elevation change in the esses"],
     "Watkins Glen International",
+    ["42.3333", "-76.9236"],
   ),
   Dover: new RaceTrack(
     "1 mile",
@@ -148,6 +162,7 @@ const tracks = {
     "image path",
     ["opened in 1969", "24deg banking in turns, 9deg on straights"],
     "Dover Motor Speedway",
+    ["39.1901", "-75.5306"],
   ),
   Charlotte: new RaceTrack(
     "1.5 mile",
@@ -157,6 +172,7 @@ const tracks = {
     "image path",
     ["opened in 1960", "24deg banking in turns, 5deg on straights"],
     "Charlotte Motor Speedway",
+    ["35.3516", "-80.6848"],
   ),
   Nashville: new RaceTrack(
     "1.33 mile",
@@ -166,6 +182,7 @@ const tracks = {
     "image path",
     ["opened in 2001", "14deg banking in the turns"],
     "Nashville Superspeedway",
+    ["36.1426", "-86.3533"],
   ),
   Michigan: new RaceTrack(
     "2 mile",
@@ -175,6 +192,7 @@ const tracks = {
     "image path",
     ["opened in 1968", "18deg banking in turns 12deg on frontstretch"],
     "Michigan International Speedway",
+    ["42.0654", "-84.2389"],
   ),
   Pocono: new RaceTrack(
     "2.5 mile",
@@ -184,6 +202,7 @@ const tracks = {
     "image path",
     ["opened in 1969", "14deg, 8deg, 6deg banking in turns 1, 2, 3"],
     "Pocono Raceway",
+    ["41.0553", "-75.5100"],
   ),
   SanDiego: new RaceTrack(
     "3.4 mile",
@@ -193,6 +212,7 @@ const tracks = {
     "image path",
     ["for the U.S. Navy's 250th anniversary", "16 turns"],
     "Naval Base Coronado",
+    ["32.6991", "-117.2152"],
   ),
   Sonoma: new RaceTrack(
     "2.52 mile",
@@ -202,6 +222,7 @@ const tracks = {
     "image path",
     ["opened in 1968", "12 turns"],
     "Sonoma Raceway",
+    ["38.1631", "-122.4597"],
   ),
   Chicagoland: new RaceTrack(
     "1.5 mile",
@@ -211,6 +232,7 @@ const tracks = {
     "image path",
     ["opened in 2001", "18deg banking in turns, 11deg on frontstretch"],
     "Chicagoland Speedway",
+    ["41", "-88"],
   ),
   NorthWilkesboro: new RaceTrack(
     ".625 mile",
@@ -220,6 +242,7 @@ const tracks = {
     "image path",
     ["opened in 1947", "13deg banking in the turns"],
     "North Wilkesboro Speedway",
+    ["36.1426", "-81.0730"],
   ),
   Indy: new RaceTrack(
     "2.5 mile",
@@ -229,6 +252,7 @@ const tracks = {
     "image path",
     ["opened in 1909", "originally paved with 3.2 million bricks"],
     "The Indianapolis Motor Speedway",
+    ["39.7953", "-86.2348"],
   ),
   Iowa: new RaceTrack(
     ".875 mile",
@@ -241,6 +265,7 @@ const tracks = {
       "variable banking 12-14deg in turns, 4-11deg on frontstretch",
     ],
     "Iowa Speedway",
+    ["41.6791", "-93.0031"],
   ),
   Richmond: new RaceTrack(
     ".75 mile",
@@ -253,6 +278,7 @@ const tracks = {
       "14deg banking in turns, 8deg on frontstretch, 2deg on backstretch",
     ],
     "Richmond Raceway",
+    ["37.5939", "-77.4206"],
   ),
   NewHampshire: new RaceTrack(
     "1.058 mile",
@@ -262,6 +288,7 @@ const tracks = {
     "image path",
     ["opened in 1990", "2-7deg banking in turns, 1deg on straights"],
     "New Hampshire Motor Speedway",
+    ["43.3617", "-71.4650"],
   ),
   WorldWideTech: new RaceTrack(
     "1.25 mile",
@@ -271,6 +298,7 @@ const tracks = {
     "image path",
     ["opened in 1997", "11deg banking in 1 and 2, 9deg in 3 and 4"],
     "World Wide Technology Raceway",
+    ["38.6513", "-90.1364"],
   ),
   Homestead: new RaceTrack(
     "1.5 mile",
@@ -280,6 +308,7 @@ const tracks = {
     "image path",
     ["opened in 1995", "variable 18-20deg banking in turns, 3deg on straights"],
     "Homestead-Miami Speedway",
+    ["25.4510", "-80.4081"],
   ),
 };
 
