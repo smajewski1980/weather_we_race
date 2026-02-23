@@ -36,4 +36,6 @@ cupRaceTrackName.innerText = raceInfo.trackName;
 cupRaceLocation.innerText = raceInfo.trackLocation;
 cupRaceTrackLength.innerText = raceInfo.trackLength;
 
-console.log(raceInfo);
+// console.log(raceInfo);
+// console.log(nextRace);
+console.log(await nextRace.getRaceDayWeather());

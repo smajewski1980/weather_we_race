@@ -1,4 +1,5 @@
 import t from "./tracks.js";
+import weatherCodes from "./weatherCodes.js";
 
 class Race {
   constructor(raceName, date, time, track) {
@@ -17,6 +18,38 @@ class Race {
       trackGeo: this.track.trackGeo,
     };
     return info;
+  }
+
+  async getRaceDayWeather() {
+    const data = await this.track.get7DayWeather();
+    const raceDate = new Date(this.date + " " + this.time);
+    console.log("race date: ", raceDate);
+    raceDate.setHours(raceDate.getHours() - 5);
+    const isoStr = raceDate.toISOString();
+    const trimmedISORaceDate = isoStr.split(":")[0];
+    const idx = data.hourly.time.indexOf(trimmedISORaceDate + ":00");
+
+    // the data
+    const weatherData = [];
+    // the label
+    const wdKeys = [];
+
+    for (const wd in data.hourly) {
+      wdKeys.push(wd);
+      weatherData.push(data.hourly[wd][idx]);
+    }
+
+    // take the weather code and make a weather string
+    wdKeys.push("weather");
+    weatherData.push(weatherCodes[weatherData[5]]);
+
+    const returnData = {};
+    wdKeys.forEach((key, idx) => {
+      returnData[key] = weatherData[idx].toString();
+      // console.log(key, ": ", weatherData[idx].toString());
+    });
+
+    return returnData;
   }
 }
 

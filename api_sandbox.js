@@ -37,7 +37,7 @@ async function getAlbWeather() {
   }
 }
 
-getAlbWeather();
+// getAlbWeather();
 
 function returnRaceDate() {
   // this is converting the date from our schedule, adj for the Eastern US timezone
