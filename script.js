@@ -14,5 +14,6 @@ function getNextRace(sched) {
   return futureRaces[0];
 }
 
-console.log(getNextRace(schedule).track.getWeather());
-console.log(getNextRace(schedule).track.getRenderData());
+const nextRace = getNextRace(schedule);
+
+console.log(nextRace);
