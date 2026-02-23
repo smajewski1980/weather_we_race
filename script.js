@@ -16,7 +16,11 @@ function getNextRace(sched) {
   const today = new Date();
 
   sched.forEach((race) => {
-    if (new Date(race.date).toDateString() >= today.toDateString()) {
+    const raceDateTime = new Date(race.date + " " + race.time);
+    // want to show the current race weather until 8 hours after the race
+    raceDateTime.setHours(raceDateTime.getHours() + 8);
+
+    if (raceDateTime > today) {
       futureRaces.push(race);
     }
   });
