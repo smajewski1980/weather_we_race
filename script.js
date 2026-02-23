@@ -18,11 +18,13 @@ class RaceTrack {
   }
 
   getWeather() {
-    return "this will be the function to get the weather";
+    return "this will be the function to get the weather for " + this.trackName;
   }
 
   getRenderData() {
-    return "this will be to return the data to put on the page";
+    return (
+      "this will be to return the data to put on the page for " + this.trackName
+    );
   }
 }
 
@@ -348,3 +350,20 @@ const schedule = [
   { date: "Sun Nov 1 2026", time: "14:00:00 GMT-0500", track: Martinsville },
   { date: "Sun Nov 8 2026", time: "15:00:00 GMT-0500", track: Homestead },
 ];
+
+// gets the next race, unless its race day, then returns todays race
+function getNextRace() {
+  let futureRaces = [];
+  const today = new Date();
+
+  schedule.forEach((race) => {
+    if (new Date(race.date).toDateString() >= today.toDateString()) {
+      futureRaces.push(race);
+    }
+  });
+
+  return futureRaces[0];
+}
+
+console.log(getNextRace().track.getWeather());
+console.log(getNextRace().track.getRenderData());
