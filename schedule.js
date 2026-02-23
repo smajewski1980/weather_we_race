@@ -7,6 +7,16 @@ class Race {
     this.time = time;
     this.track = track;
   }
+  getRaceInfo() {
+    const info = {
+      date: this.date,
+      time: this.time,
+      trackName: this.track.trackName,
+      trackLocation: this.track.trackLocation,
+      trackLength: this.track.trackLength,
+    };
+    return info;
+  }
 }
 
 const Race1 = new Race(
