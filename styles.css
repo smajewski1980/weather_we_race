@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+img {
+  /* this may be temporary */
+  max-width: 200px;
+}
+
 body {
   display: grid;
   place-content: center;

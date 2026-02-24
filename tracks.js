@@ -32,12 +32,12 @@ class RaceTrack {
     }
   }
 }
-
+// <------------------check the images
 const tracks = {
   Daytona: new RaceTrack(
     "2.5 mile",
     "Daytona Beach, FL",
-    "image path",
+    "./assets/daytona.svg",
     "image path",
     "image path",
     ["opened in 1959", "31deg banking in the turns, 18deg in the tri-oval"],
@@ -47,7 +47,7 @@ const tracks = {
   Atlanta: new RaceTrack(
     "1.54 mile",
     "Hampton, GA",
-    "image path",
+    "./assets/echo_park_speedway.png",
     "image path",
     "image path",
     ["opened in 1960", "28deg banking"],
@@ -57,7 +57,7 @@ const tracks = {
   COTA: new RaceTrack(
     "3.41 mile",
     "Austin, TX",
-    "image path",
+    "./assets/cota.svg",
     "image path",
     "image path",
     ["opened in 2012", "has 20 turns"],
@@ -67,7 +67,7 @@ const tracks = {
   Phoenix: new RaceTrack(
     "1 mile",
     "Avondale, AZ",
-    "image path",
+    "./assets/phoenix.png",
     "image path",
     "image path",
     ["opened in 1964", "reconfigured in 2018"],
@@ -77,7 +77,7 @@ const tracks = {
   LasVegas: new RaceTrack(
     "1.5 mile",
     "Las Vegas, NV",
-    "image path",
+    "./assets/las_vegas.png",
     "image path",
     "image path",
     ["opened in 1996", "20deg banking in turns, 9-12deg on straightaways"],
@@ -87,7 +87,7 @@ const tracks = {
   Darlington: new RaceTrack(
     "1.366 mile",
     "Darlington, SC",
-    "image path",
+    "./assets/darlington.png",
     "image path",
     "image path",
     ["opened in 1950", "25deg banking in 1 and 2, 23deg in 3 and 4"],
@@ -97,7 +97,7 @@ const tracks = {
   Martinsville: new RaceTrack(
     ".526 mile",
     "Ridgeway, VA",
-    "image path",
+    "./assets/martinsville.png",
     "image path",
     "image path",
     ["opened in 1947", "12deg banking"],
@@ -107,7 +107,7 @@ const tracks = {
   Bristol: new RaceTrack(
     ".533 mile",
     "Bristol, TN",
-    "image path",
+    "./assets/bristol.svg",
     "image path",
     "image path",
     ["opened in 1961", "24-28deg prog banking in turns"],
@@ -117,7 +117,7 @@ const tracks = {
   Kansas: new RaceTrack(
     "1.5 mile",
     "Kansas City, KS",
-    "image path",
+    "./assets/kansas.png",
     "image path",
     "image path",
     ["opened in 2001", "17-20deg banking in turns, 9-11deg on frontstretch"],
@@ -127,7 +127,7 @@ const tracks = {
   Talladega: new RaceTrack(
     "2.66 mile",
     "Lincoln, AL",
-    "image path",
+    "./assets/talladega.png",
     "image path",
     "image path",
     ["opened in 1969", "33deg banking in turns"],
@@ -137,7 +137,7 @@ const tracks = {
   Texas: new RaceTrack(
     "1.5 mile",
     "Fort Worth, TX",
-    "image path",
+    "./assets/texas.png",
     "image path",
     "image path",
     [
@@ -150,7 +150,7 @@ const tracks = {
   WatkinsGlen: new RaceTrack(
     "2.45 mile",
     "Watkins Glen, NY",
-    "image path",
+    "./assets/watkins_glen.svg",
     "image path",
     "image path",
     ["opened in 1948", "141 ft elevation change in the esses"],
@@ -160,7 +160,7 @@ const tracks = {
   Dover: new RaceTrack(
     "1 mile",
     "Dover, DE",
-    "image path",
+    "./assets/dover.png",
     "image path",
     "image path",
     ["opened in 1969", "24deg banking in turns, 9deg on straights"],
@@ -170,7 +170,7 @@ const tracks = {
   Charlotte: new RaceTrack(
     "1.5 mile",
     "Concord, NC",
-    "image path",
+    "./assets/charlotte.svg",
     "image path",
     "image path",
     ["opened in 1960", "24deg banking in turns, 5deg on straights"],
@@ -180,7 +180,7 @@ const tracks = {
   Nashville: new RaceTrack(
     "1.33 mile",
     "Lebanon, TN",
-    "image path",
+    "./assets/nashville.png",
     "image path",
     "image path",
     ["opened in 2001", "14deg banking in the turns"],
@@ -190,7 +190,7 @@ const tracks = {
   Michigan: new RaceTrack(
     "2 mile",
     "Brooklyn, MI",
-    "image path",
+    "./assets/michigan.png",
     "image path",
     "image path",
     ["opened in 1968", "18deg banking in turns 12deg on frontstretch"],
@@ -200,7 +200,7 @@ const tracks = {
   Pocono: new RaceTrack(
     "2.5 mile",
     "Long Pond, PA",
-    "image path",
+    "./assets/pocono.png",
     "image path",
     "image path",
     ["opened in 1969", "14deg, 8deg, 6deg banking in turns 1, 2, 3"],
@@ -210,7 +210,7 @@ const tracks = {
   SanDiego: new RaceTrack(
     "3.4 mile",
     "San Diego, CA",
-    "image path",
+    "./assets/san_diego.png",
     "image path",
     "image path",
     ["for the U.S. Navy's 250th anniversary", "16 turns"],
@@ -220,7 +220,7 @@ const tracks = {
   Sonoma: new RaceTrack(
     "2.52 mile",
     "Sonoma, CA",
-    "image path",
+    "./assets/sonoma.png",
     "image path",
     "image path",
     ["opened in 1968", "12 turns"],
@@ -230,7 +230,7 @@ const tracks = {
   Chicagoland: new RaceTrack(
     "1.5 mile",
     "Joliet, IL",
-    "image path",
+    "./assets/chicagoland.png",
     "image path",
     "image path",
     ["opened in 2001", "18deg banking in turns, 11deg on frontstretch"],
@@ -240,7 +240,7 @@ const tracks = {
   NorthWilkesboro: new RaceTrack(
     ".625 mile",
     "North Wilkesboro, NC",
-    "image path",
+    "./assets/north_wilkesboro.png",
     "image path",
     "image path",
     ["opened in 1947", "13deg banking in the turns"],
@@ -250,7 +250,7 @@ const tracks = {
   Indy: new RaceTrack(
     "2.5 mile",
     "Speedway, IN",
-    "image path",
+    "./assets/indy.png",
     "image path",
     "image path",
     ["opened in 1909", "originally paved with 3.2 million bricks"],
@@ -260,7 +260,7 @@ const tracks = {
   Iowa: new RaceTrack(
     ".875 mile",
     "Newton, IA",
-    "image path",
+    "./assets/iowa.png",
     "image path",
     "image path",
     [
@@ -273,7 +273,7 @@ const tracks = {
   Richmond: new RaceTrack(
     ".75 mile",
     "Henrico County, VA",
-    "image path",
+    "./assets/richmond.png",
     "image path",
     "image path",
     [
@@ -286,7 +286,7 @@ const tracks = {
   NewHampshire: new RaceTrack(
     "1.058 mile",
     "Loudon, NH",
-    "image path",
+    "./assets/new_hampshire.png",
     "image path",
     "image path",
     ["opened in 1990", "2-7deg banking in turns, 1deg on straights"],
@@ -296,7 +296,7 @@ const tracks = {
   WorldWideTech: new RaceTrack(
     "1.25 mile",
     "Madison, IL",
-    "image path",
+    "./assets/wwtr.png",
     "image path",
     "image path",
     ["opened in 1997", "11deg banking in 1 and 2, 9deg in 3 and 4"],
@@ -306,7 +306,7 @@ const tracks = {
   Homestead: new RaceTrack(
     "1.5 mile",
     "Homestead, FL",
-    "image path",
+    "./assets/homestead.png",
     "image path",
     "image path",
     ["opened in 1995", "variable 18-20deg banking in turns, 3deg on straights"],

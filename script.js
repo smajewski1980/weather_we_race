@@ -12,6 +12,8 @@ const cupRaceTrackLength = document.querySelector(
 const cupRaceWeatherInfo = document.querySelector(
   "#next-cup-race .weather-info",
 );
+const cupRaceName = document.querySelector("#next-cup-race .race-name");
+const cupRaceTrackLogo = document.querySelector("#next-cup-race .track-logo");
 
 // gets the next race, unless its race day, then returns todays race
 function getNextRace(sched) {
@@ -34,14 +36,20 @@ function getNextRace(sched) {
 const nextRace = getNextRace(schedule);
 const raceInfo = nextRace.getRaceInfo();
 cupRaceDate.innerText = raceInfo.date;
-cupRaceTime.innerText = raceInfo.time;
+cupRaceTime.innerText = new Date(
+  "2000-01-01 " + raceInfo.time,
+).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 cupRaceTrackName.innerText = raceInfo.trackName;
 cupRaceLocation.innerText = raceInfo.trackLocation;
 cupRaceTrackLength.innerText = raceInfo.trackLength;
 const raceWeather = await nextRace.getRaceDayWeather();
 for (let item in raceWeather) {
-  cupRaceWeatherInfo.innerText += item + ": " + raceWeather[item] + "\n";
+  if (item !== "time" && item !== "weather_code") {
+    cupRaceWeatherInfo.innerText += item + ": " + raceWeather[item] + "\n";
+  }
 }
+cupRaceName.innerText = raceInfo.raceName;
+cupRaceTrackLogo.src = raceInfo.trackLogo;
 
 // console.log(raceInfo);
 // console.log(nextRace);

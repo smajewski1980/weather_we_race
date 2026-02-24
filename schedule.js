@@ -13,10 +13,12 @@ class Race {
     const info = {
       date: this.date,
       time: this.time,
+      raceName: this.raceName,
       trackName: this.track.trackName,
       trackLocation: this.track.trackLocation,
       trackLength: this.track.trackLength,
       trackGeo: this.track.trackGeo,
+      trackLogo: this.track.trackLogo,
     };
     return info;
   }
@@ -25,7 +27,7 @@ class Race {
     // will have to handle an error for an off week...
     const data = await this.track.get7DayWeather();
     const raceDate = new Date(this.date + " " + this.time);
-    console.log("race date: ", raceDate);
+    // console.log("race date: ", raceDate);
     raceDate.setHours(raceDate.getHours() - 5);
     const isoStr = raceDate.toISOString();
     const trimmedISORaceDate = isoStr.split(":")[0];
@@ -55,218 +57,223 @@ class Race {
 }
 
 const Race1 = new Race(
-  "race 1",
+  "Daytona 500",
   "Sun Feb 15 2026",
   "13:30:00 GMT-0500",
   t.Daytona,
 );
 const Race2 = new Race(
-  "race 2",
+  "Autotrader 400",
   "Sun Feb 22 2026",
   "15:00:00 GMT-0500",
   t.Atlanta,
 );
-const Race3 = new Race("race 3", "Sun Mar 1 2026", "15:30:00 GMT-0500", t.COTA);
+const Race3 = new Race(
+  "DuraMax Texas Grand Prix Powered by RelaDyne",
+  "Sun Mar 1 2026",
+  "15:30:00 GMT-0500",
+  t.COTA,
+);
 const Race4 = new Race(
-  "race 4",
+  "Straight Talk Wireless 500",
   "Sun Mar 8 2026",
   "15:30:00 GMT-0500",
   t.Phoenix,
 );
 const Race5 = new Race(
-  "race 5",
+  "Pennzoil 400 presented by Jiffy Lube",
   "Sun Mar 15 2026",
   "16:00:00 GMT-0500",
   t.LasVegas,
 );
 const Race6 = new Race(
-  "race 6",
+  "Goodyear 400",
   "Sun Mar 22 2026",
   "15:00:00 GMT-0500",
   t.Darlington,
 );
 const Race7 = new Race(
-  "race 7",
+  "Cook Out 400",
   "Sun Mar 29 2026",
   "15:30:00 GMT-0500",
   t.Martinsville,
 );
 const Race8 = new Race(
-  "race 8",
+  "Food City 500",
   "Sun Apr 12 2026",
   "15:00:00 GMT-0500",
   t.Bristol,
 );
 const Race9 = new Race(
-  "race 9",
+  "AdventHealth 400",
   "Sun Apr 19 2026",
   "14:00:00 GMT-0500",
   t.Kansas,
 );
 const Race10 = new Race(
-  "race 10",
+  "Jack Link's 500",
   "Sun Apr 26 2026",
   "15:00:00 GMT-0500",
   t.Talladega,
 );
 const Race11 = new Race(
-  "race 11",
+  "Würth 400 presented by LIQUI MOLY",
   "Sun May 3 2026",
   "15:30:00 GMT-0500",
   t.Texas,
 );
 const Race12 = new Race(
-  "race 12",
+  "Go Bowling at The Glen",
   "Sun May 10 2026",
   "15:00:00 GMT-0500",
   t.WatkinsGlen,
 );
 const Race13 = new Race(
-  "race 13",
+  "NASCAR All-Star Race",
   "Sun May 17 2026",
   "15:00:00 GMT-0500",
   t.Dover,
 );
 const Race14 = new Race(
-  "race 14",
+  "Coca-Cola 600",
   "Sun May 24 2026",
   "18:00:00 GMT-0500",
   t.Charlotte,
 );
 const Race15 = new Race(
-  "race 15",
+  "Cracker Barrel 400",
   "Sun May 31 2026",
   "19:00:00 GMT-0500",
   t.Nashville,
 );
 const Race16 = new Race(
-  "race 16",
+  "FireKeepers Casino 400",
   "Sun Jun 7 2026",
   "15:00:00 GMT-0500",
   t.Michigan,
 );
 const Race17 = new Race(
-  "race 17",
+  "Great American Getaway 400 presented by VISITPA",
   "Sun Jun 14 2026",
   "15:00:00 GMT-0500",
   t.Pocono,
 );
 const Race18 = new Race(
-  "race 18",
+  "Anduril 250",
   "Sun Jun 21 2026",
   "16:00:00 GMT-0500",
   t.SanDiego,
 );
 const Race19 = new Race(
-  "race 19",
+  "Toyota / Save Mart 350",
   "Sun Jun 28 2026",
   "15:30:00 GMT-0500",
   t.Sonoma,
 );
 const Race20 = new Race(
-  "race 20",
+  "NASCAR Cup Series Race at Chicagoland",
   "Sun Jul 5 2026",
   "18:00:00 GMT-0500",
   t.Chicagoland,
 );
 const Race21 = new Race(
-  "race 21",
+  "Quaker State 400 Available at Walmart",
   "Sun Jul 12 2026",
   "19:00:00 GMT-0500",
   t.Atlanta,
 );
 const Race22 = new Race(
-  "race 22",
+  "Window World 450",
   "Sun Jul 19 2026",
   "19:00:00 GMT-0500",
   t.NorthWilkesboro,
 );
 const Race23 = new Race(
-  "race 23",
+  "Brickyard 400",
   "Sun Jul 26 2026",
   "14:00:00 GMT-0500",
   t.Indy,
 );
 const Race24 = new Race(
-  "race 24",
+  "Iowa Corn 350 Powered by Ethanol",
   "Sun Aug 9 2026",
   "15:30:00 GMT-0500",
   t.Iowa,
 );
 const Race25 = new Race(
-  "race 25",
+  "Cook Out 400",
   "Sat Aug 15 2026",
   "19:00:00 GMT-0500",
   t.Richmond,
 );
 const Race26 = new Race(
-  "race 26",
+  "NASCAR Cup Series Race at New Hampshire",
   "Sun Aug 23 2026",
   "15:00:00 GMT-0500",
   t.NewHampshire,
 );
 const Race27 = new Race(
-  "race 27",
+  "Coke Zero Sugar 400",
   "Sat Aug 29 2026",
   "19:30:00 GMT-0500",
   t.Daytona,
 );
 const Race28 = new Race(
-  "race 28",
+  "Cook Out Southern 500",
   "Sun Sep 6 2026",
   "17:00:00 GMT-0500",
   t.Darlington,
 );
 const Race29 = new Race(
-  "race 29",
+  "Enjoy Illinois 300",
   "Sun Sep 13 2026",
   "15:00:00 GMT-0500",
   t.WorldWideTech,
 );
 const Race30 = new Race(
-  "race 30",
+  "Bass Pro Shops Night Race",
   "Sat Sep 19 2026",
   "19:30:00 GMT-0500",
   t.Bristol,
 );
 const Race31 = new Race(
-  "race 31",
+  "Hollywood Casino 400",
   "Sun Sep 27 2026",
   "15:00:00 GMT-0500",
   t.Kansas,
 );
 const Race32 = new Race(
-  "race 32",
+  "South Point 400",
   "Sun Oct 4 2026",
   "17:30:00 GMT-0500",
   t.LasVegas,
 );
 const Race33 = new Race(
-  "race 33",
+  "Bank of America 400",
   "Sun Oct 11 2026",
   "15:00:00 GMT-0500",
   t.Charlotte,
 );
 const Race34 = new Race(
-  "race 34",
+  "Freeway Insurance 500",
   "Sun Oct 18 2026",
   "15:00:00 GMT-0500",
   t.Phoenix,
 );
 const Race35 = new Race(
-  "race 35",
+  "Yellawood 500",
   "Sun Oct 25 2026",
   "14:00:00 GMT-0500",
   t.Talladega,
 );
 const Race36 = new Race(
-  "race 36",
+  "Xfinity 500",
   "Sun Nov 1 2026",
   "14:00:00 GMT-0500",
   t.Martinsville,
 );
 const Race37 = new Race(
-  "race 37",
+  "NASCAR Cup Series Championship Race",
   "Sun Nov 8 2026",
   "15:00:00 GMT-0500",
   t.Homestead,
