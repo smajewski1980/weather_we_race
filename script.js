@@ -14,6 +14,7 @@ const cupRaceWeatherInfo = document.querySelector(
 );
 const cupRaceName = document.querySelector("#next-cup-race .race-name");
 const cupRaceTrackLogo = document.querySelector("#next-cup-race .track-logo");
+const cupRaceTrackMain = document.querySelector("#next-cup-race .track-main");
 
 // gets the next race, unless its race day, then returns todays race
 function getNextRace(sched) {
@@ -50,6 +51,7 @@ for (let item in raceWeather) {
 }
 cupRaceName.innerText = raceInfo.raceName;
 cupRaceTrackLogo.src = raceInfo.trackLogo;
+cupRaceTrackMain.src = raceInfo.trackPhoto;
 
 // console.log(raceInfo);
 // console.log(nextRace);

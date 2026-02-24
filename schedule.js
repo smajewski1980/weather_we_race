@@ -19,6 +19,7 @@ class Race {
       trackLength: this.track.trackLength,
       trackGeo: this.track.trackGeo,
       trackLogo: this.track.trackLogo,
+      trackPhoto: this.track.trackPhoto,
     };
     return info;
   }

@@ -7,7 +7,7 @@
 
 img {
   /* this may be temporary */
-  max-width: 200px;
+  max-width: 100%;
 }
 
 body {
@@ -25,4 +25,18 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+}
+
+#next-cup-race {
+  outline: 2px solid black;
+  /* change this hardcoded width later */
+  width: 350px;
+
+  .track-main {
+    /* these dimensions are temporary */
+    width: 350px;
+    /* height: 320px; */
+    outline: blue;
+    display: block;
+  }
 }
