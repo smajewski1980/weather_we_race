@@ -8,6 +8,7 @@ class Race {
     this.time = time;
     this.track = track;
   }
+
   getRaceInfo() {
     const info = {
       date: this.date,
@@ -21,6 +22,7 @@ class Race {
   }
 
   async getRaceDayWeather() {
+    // will have to handle an error for an off week...
     const data = await this.track.get7DayWeather();
     const raceDate = new Date(this.date + " " + this.time);
     console.log("race date: ", raceDate);
@@ -39,14 +41,13 @@ class Race {
       weatherData.push(data.hourly[wd][idx]);
     }
 
-    // take the weather code and make a weather string
+    // take the weather code and get a weather string
     wdKeys.push("weather");
     weatherData.push(weatherCodes[weatherData[5]]);
 
     const returnData = {};
     wdKeys.forEach((key, idx) => {
       returnData[key] = weatherData[idx].toString();
-      // console.log(key, ": ", weatherData[idx].toString());
     });
 
     return returnData;

@@ -30,13 +30,6 @@ class RaceTrack {
     } catch (error) {
       console.log(error);
     }
-    // return "this will be the function to get the weather for " + this.trackName;
-  }
-
-  getRenderData() {
-    return (
-      "this will be to return the data to put on the page for " + this.trackName
-    );
   }
 }
 
