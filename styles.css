@@ -24,6 +24,8 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  background-image: url("./assets/flag_bg.webp");
+  background-color: cornsilk;
 }
 
 h1 {
@@ -77,9 +79,18 @@ h1 {
 
   .race-info-wrapper {
     text-align: center;
-    margin-block: 0.5rem;
+    margin-block: 1.5rem 0.5rem;
     font-size: 1.25rem;
     font-weight: 500;
+    position: relative;
+
+    &::before {
+      content: "next cup race:";
+      position: absolute;
+      top: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
     .race-name {
       max-width: 25ch;
