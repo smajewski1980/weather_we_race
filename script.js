@@ -1,14 +1,8 @@
 import schedule from "./schedule.js";
 
 const cupRaceDate = document.querySelector("#next-cup-race .date");
-const cupRaceTime = document.querySelector("#next-cup-race .time");
-const cupRaceTrackName = document.querySelector("#next-cup-race .track-name");
-const cupRaceLocation = document.querySelector(
-  "#next-cup-race .track-location",
-);
-const cupRaceTrackLength = document.querySelector(
-  "#next-cup-race .track-length",
-);
+const cupRaceInfo = document.querySelector("#next-cup-race .track-info");
+
 const cupRaceWeatherInfo = document.querySelector(
   "#next-cup-race .weather-info",
 );
@@ -36,13 +30,12 @@ function getNextRace(sched) {
 
 const nextRace = getNextRace(schedule);
 const raceInfo = nextRace.getRaceInfo();
-cupRaceDate.innerText = raceInfo.date;
-cupRaceTime.innerText = new Date(
-  "2000-01-01 " + raceInfo.time,
-).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-cupRaceTrackName.innerText = raceInfo.trackName;
-cupRaceLocation.innerText = raceInfo.trackLocation;
-cupRaceTrackLength.innerText = raceInfo.trackLength;
+const raceTime = new Date("2000-01-01 " + raceInfo.time).toLocaleTimeString(
+  [],
+  { hour: "2-digit", minute: "2-digit" },
+);
+cupRaceDate.innerText = raceInfo.date + " " + raceTime;
+cupRaceInfo.innerText = raceInfo.trackLocation + " - " + raceInfo.trackLength;
 const raceWeather = await nextRace.getRaceDayWeather();
 for (let item in raceWeather) {
   if (item !== "time" && item !== "weather_code") {
