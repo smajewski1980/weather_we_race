@@ -26,6 +26,11 @@ body {
     sans-serif;
 }
 
+h1 {
+  text-align: center;
+  margin-block: 1rem;
+}
+
 #next-cup-race {
   /* outline: 2px solid black; */
   /* change this hardcoded width later */
@@ -41,6 +46,16 @@ body {
       top: 0.5rem;
       z-index: -1;
       border-radius: 25px;
+    }
+
+    .track-logo {
+      position: absolute;
+      bottom: 0.5rem;
+      width: 85%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: 125px;
     }
   }
 }

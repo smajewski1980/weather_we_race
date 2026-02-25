@@ -57,7 +57,7 @@ const tracks = {
   COTA: new RaceTrack(
     "3.41 mile",
     "Austin, TX",
-    "./assets/cota.svg",
+    "./assets/cota.webp",
     "./assets/cota_top_view.webp",
     "image path",
     ["opened in 2012", "has 20 turns"],
@@ -87,7 +87,7 @@ const tracks = {
   Darlington: new RaceTrack(
     "1.366 mile",
     "Darlington, SC",
-    "./assets/darlington.png",
+    "./assets/darlington.webp",
     "./assets/darlington_top_view.webp",
     "image path",
     ["opened in 1950", "25deg banking in 1 and 2, 23deg in 3 and 4"],
@@ -107,7 +107,7 @@ const tracks = {
   Bristol: new RaceTrack(
     ".533 mile",
     "Bristol, TN",
-    "./assets/bristol.svg",
+    "./assets/bristol.webp",
     "./assets/bristol_top_view.webp",
     "image path",
     ["opened in 1961", "24-28deg prog banking in turns"],
@@ -127,7 +127,7 @@ const tracks = {
   Talladega: new RaceTrack(
     "2.66 mile",
     "Lincoln, AL",
-    "./assets/talladega.png",
+    "./assets/talladega.webp",
     "./assets/talladega_top_view.webp",
     "image path",
     ["opened in 1969", "33deg banking in turns"],
@@ -180,7 +180,7 @@ const tracks = {
   Nashville: new RaceTrack(
     "1.33 mile",
     "Lebanon, TN",
-    "./assets/nashville.png",
+    "./assets/nashville.webp",
     "./assets/nashville_top_view.webp",
     "image path",
     ["opened in 2001", "14deg banking in the turns"],
@@ -200,7 +200,7 @@ const tracks = {
   Pocono: new RaceTrack(
     "2.5 mile",
     "Long Pond, PA",
-    "./assets/pocono.png",
+    "./assets/pocono.webp",
     "./assets/pocono_top_view.webp",
     "image path",
     ["opened in 1969", "14deg, 8deg, 6deg banking in turns 1, 2, 3"],
@@ -210,7 +210,7 @@ const tracks = {
   SanDiego: new RaceTrack(
     "3.4 mile",
     "San Diego, CA",
-    "./assets/san_diego.png",
+    "./assets/san_diego.webp",
     "./assets/san_diego_top_view.webp",
     "image path",
     ["for the U.S. Navy's 250th anniversary", "16 turns"],
@@ -240,7 +240,7 @@ const tracks = {
   NorthWilkesboro: new RaceTrack(
     ".625 mile",
     "North Wilkesboro, NC",
-    "./assets/north_wilkesboro.png",
+    "./assets/north_wilkesboro.webp",
     "./assets/north_wilkesboro_top_view.webp",
     "image path",
     ["opened in 1947", "13deg banking in the turns"],
@@ -260,7 +260,7 @@ const tracks = {
   Iowa: new RaceTrack(
     ".875 mile",
     "Newton, IA",
-    "./assets/iowa.png",
+    "./assets/iowa.webp",
     "./assets/iowa_top_view.webp",
     "image path",
     [
