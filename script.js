@@ -37,15 +37,30 @@ const raceTime = new Date("2000-01-01 " + raceInfo.time).toLocaleTimeString(
 cupRaceDate.innerText = raceInfo.date + " " + raceTime;
 cupRaceInfo.innerText = raceInfo.trackLocation + " - " + raceInfo.trackLength;
 const raceWeather = await nextRace.getRaceDayWeather();
-for (let item in raceWeather) {
-  if (item !== "time" && item !== "weather_code") {
-    cupRaceWeatherInfo.innerText += item + ": " + raceWeather[item] + "\n";
-  }
-}
+
 cupRaceName.innerText = raceInfo.raceName;
 cupRaceTrackLogo.src = raceInfo.trackLogo;
 cupRaceTrackMain.src = raceInfo.trackPhoto;
 
-// console.log(raceInfo);
-// console.log(nextRace);
-console.log(await nextRace.getRaceDayWeather());
+// load the weather data to the dom elements
+const weatherSpan = document.querySelector(".weather span");
+const tempSpan = document.querySelector(".temperature span");
+const precipSpan = document.querySelector(".precip span");
+const cloudSpan = document.querySelector(".cloud-cover span");
+const windSpdSpan = document.querySelector(".wind-spd span");
+const windGustSpan = document.querySelector(".wind-gusts span");
+
+weatherSpan.innerText = raceWeather.weather;
+tempSpan.innerText =
+  raceWeather.temperature_2m + raceWeather.hourly_units.temperature_2m;
+precipSpan.innerText =
+  raceWeather.precipitation_probability +
+  raceWeather.hourly_units.precipitation_probability;
+cloudSpan.innerText =
+  raceWeather.cloud_cover + raceWeather.hourly_units.cloud_cover;
+windGustSpan.innerText =
+  raceWeather.wind_gusts_10m + " " + raceWeather.hourly_units.wind_gusts_10m;
+windSpdSpan.innerText =
+  raceWeather.wind_speed_10m + " " + raceWeather.hourly_units.wind_speed_10m;
+
+console.log(raceWeather);

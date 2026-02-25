@@ -17,7 +17,7 @@ class RaceTrack {
     this.trackFacts = trackFacts;
     this.trackName = trackName;
     this.trackGeo = [trackCoords[0], trackCoords[1]];
-    this.URL = `https://api.open-meteo.com/v1/forecast?latitude=${this.trackGeo[0]}&longitude=${this.trackGeo[1]}&hourly=temperature_2m,precipitation_probability,wind_gusts_10m,precipitation,weather_code,cloud_cover&timezone=America%2FNew_York&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`;
+    this.URL = `https://api.open-meteo.com/v1/forecast?latitude=${this.trackGeo[0]}&longitude=${this.trackGeo[1]}&hourly=temperature_2m,precipitation_probability,wind_speed_10m,wind_gusts_10m,precipitation,weather_code,cloud_cover&timezone=America%2FNew_York&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`;
   }
 
   async get7DayWeather() {

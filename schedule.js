@@ -28,7 +28,6 @@ class Race {
     // will have to handle an error for an off week...
     const data = await this.track.get7DayWeather();
     const raceDate = new Date(this.date + " " + this.time);
-    // console.log("race date: ", raceDate);
     raceDate.setHours(raceDate.getHours() - 5);
     const isoStr = raceDate.toISOString();
     const trimmedISORaceDate = isoStr.split(":")[0];
@@ -52,6 +51,8 @@ class Race {
     wdKeys.forEach((key, idx) => {
       returnData[key] = weatherData[idx].toString();
     });
+
+    returnData["hourly_units"] = data.hourly_units;
 
     return returnData;
   }
