@@ -43,12 +43,12 @@ cupRaceTrackLogo.src = raceInfo.trackLogo;
 cupRaceTrackMain.src = raceInfo.trackPhoto;
 
 // load the weather data to the dom elements
-const weatherSpan = document.querySelector(".weather span");
-const tempSpan = document.querySelector(".temperature span");
-const precipSpan = document.querySelector(".precip span");
-const cloudSpan = document.querySelector(".cloud-cover span");
-const windSpdSpan = document.querySelector(".wind-spd span");
-const windGustSpan = document.querySelector(".wind-gusts span");
+const weatherSpan = document.getElementById("weather-span");
+const tempSpan = document.getElementById("temp-span");
+const precipSpan = document.getElementById("precip-span");
+const cloudSpan = document.getElementById("cloud-span");
+const windSpdSpan = document.getElementById("wind-spd-span");
+const windGustSpan = document.getElementById("wind-gst-span");
 
 weatherSpan.innerText = raceWeather.weather;
 tempSpan.innerText =
@@ -58,9 +58,7 @@ precipSpan.innerText =
   raceWeather.hourly_units.precipitation_probability;
 cloudSpan.innerText =
   raceWeather.cloud_cover + raceWeather.hourly_units.cloud_cover;
-windGustSpan.innerText =
-  raceWeather.wind_gusts_10m + " " + raceWeather.hourly_units.wind_gusts_10m;
-windSpdSpan.innerText =
-  raceWeather.wind_speed_10m + " " + raceWeather.hourly_units.wind_speed_10m;
+windGustSpan.innerText = raceWeather.wind_gusts_10m + "mph";
+windSpdSpan.innerText = raceWeather.wind_speed_10m + "mph";
 
 console.log(raceWeather);

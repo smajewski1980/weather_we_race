@@ -37,7 +37,7 @@ const tracks = {
   Daytona: new RaceTrack(
     "2.5 mile",
     "Daytona Beach, FL",
-    "./assets/daytona.svg",
+    "./assets/daytona.webp",
     "./assets/daytona_top_view.webp",
     "image path",
     ["opened in 1959", "31deg banking in the turns, 18deg in the tri-oval"],
@@ -150,7 +150,7 @@ const tracks = {
   WatkinsGlen: new RaceTrack(
     "2.45 mile",
     "Watkins Glen, NY",
-    "./assets/watkins_glen.svg",
+    "./assets/watkins_glen.webp",
     "./assets/watkins_glen_top_view.webp",
     "image path",
     ["opened in 1948", "141 ft elevation change in the esses"],
@@ -170,7 +170,7 @@ const tracks = {
   Charlotte: new RaceTrack(
     "1.5 mile",
     "Concord, NC",
-    "./assets/charlotte.svg",
+    "./assets/charlotte.webp",
     "./assets/charlotte_top_view.webp",
     "image path",
     ["opened in 1960", "24deg banking in turns, 5deg on straights"],

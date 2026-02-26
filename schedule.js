@@ -45,7 +45,7 @@ class Race {
 
     // take the weather code and get a weather string
     wdKeys.push("weather");
-    weatherData.push(weatherCodes[weatherData[5]]);
+    weatherData.push(weatherCodes[weatherData[6]]);
 
     const returnData = {};
     wdKeys.forEach((key, idx) => {
