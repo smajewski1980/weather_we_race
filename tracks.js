@@ -47,7 +47,7 @@ const tracks = {
   Atlanta: new RaceTrack(
     "1.54 mile",
     "Hampton, GA",
-    "./assets/echo_park_speedway.png",
+    "./assets/echo_park_speedway.webp",
     "./assets/atlanta_top_view.webp",
     "image path",
     ["opened in 1960", "28deg banking"],
@@ -67,14 +67,14 @@ const tracks = {
   Phoenix: new RaceTrack(
     "1 mile",
     "Avondale, AZ",
-    "./assets/phoenix.png",
+    "./assets/phoenix.webp",
     "./assets/phoenix_top_view.webp",
     "image path",
     ["opened in 1964", "reconfigured in 2018"],
     "Phoenix Raceway",
     ["33.3756", "-112.3116"],
   ),
-  LasVegas: new RaceTrack(
+  LasVegas: new RaceTrack( // <----left off here with redoing the logos
     "1.5 mile",
     "Las Vegas, NV",
     "./assets/las_vegas.png",
