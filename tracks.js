@@ -74,10 +74,10 @@ const tracks = {
     "Phoenix Raceway",
     ["33.3756", "-112.3116"],
   ),
-  LasVegas: new RaceTrack( // <----left off here with redoing the logos
+  LasVegas: new RaceTrack(
     "1.5 mile",
     "Las Vegas, NV",
-    "./assets/las_vegas.png",
+    "./assets/las_vegas.webp",
     "./assets/las_vegas_top_view.webp",
     "image path",
     ["opened in 1996", "20deg banking in turns, 9-12deg on straightaways"],
@@ -97,7 +97,7 @@ const tracks = {
   Martinsville: new RaceTrack(
     ".526 mile",
     "Ridgeway, VA",
-    "./assets/martinsville.png",
+    "./assets/martinsville.webp",
     "./assets/martinsville_top_view.webp",
     "image path",
     ["opened in 1947", "12deg banking"],
@@ -117,7 +117,7 @@ const tracks = {
   Kansas: new RaceTrack(
     "1.5 mile",
     "Kansas City, KS",
-    "./assets/kansas.png",
+    "./assets/kansas.webp",
     "./assets/kansas_top_view.webp",
     "image path",
     ["opened in 2001", "17-20deg banking in turns, 9-11deg on frontstretch"],
@@ -137,7 +137,7 @@ const tracks = {
   Texas: new RaceTrack(
     "1.5 mile",
     "Fort Worth, TX",
-    "./assets/texas.png",
+    "./assets/texas.webp",
     "./assets/texas_top_view.webp",
     "image path",
     [
@@ -160,7 +160,7 @@ const tracks = {
   Dover: new RaceTrack(
     "1 mile",
     "Dover, DE",
-    "./assets/dover.png",
+    "./assets/dover.webp",
     "./assets/dover_top_view.webp",
     "image path",
     ["opened in 1969", "24deg banking in turns, 9deg on straights"],
@@ -187,7 +187,7 @@ const tracks = {
     "Nashville Superspeedway",
     ["36.1426", "-86.3533"],
   ),
-  Michigan: new RaceTrack(
+  Michigan: new RaceTrack( //<-------left off here
     "2 mile",
     "Brooklyn, MI",
     "./assets/michigan.png",
