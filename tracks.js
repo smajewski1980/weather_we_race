@@ -55,7 +55,7 @@ const tracks = {
     ["33.3813", "-84.3160"],
   ),
   COTA: new RaceTrack(
-    "3.41 mile",
+    "2.4 mile",
     "Austin, TX",
     "./assets/cota.webp",
     "./assets/cota_top_view.webp",
@@ -187,10 +187,10 @@ const tracks = {
     "Nashville Superspeedway",
     ["36.1426", "-86.3533"],
   ),
-  Michigan: new RaceTrack( //<-------left off here
+  Michigan: new RaceTrack(
     "2 mile",
     "Brooklyn, MI",
-    "./assets/michigan.png",
+    "./assets/michigan.webp",
     "./assets/michigan_top_view.webp",
     "image path",
     ["opened in 1968", "18deg banking in turns 12deg on frontstretch"],
@@ -220,7 +220,7 @@ const tracks = {
   Sonoma: new RaceTrack(
     "2.52 mile",
     "Sonoma, CA",
-    "./assets/sonoma.png",
+    "./assets/sonoma.webp",
     "./assets/sonoma_top_view.webp",
     "image path",
     ["opened in 1968", "12 turns"],
@@ -230,7 +230,7 @@ const tracks = {
   Chicagoland: new RaceTrack(
     "1.5 mile",
     "Joliet, IL",
-    "./assets/chicagoland.png",
+    "./assets/chicagoland.webp",
     "./assets/chicagoland_top_view.webp",
     "image path",
     ["opened in 2001", "18deg banking in turns, 11deg on frontstretch"],
@@ -250,7 +250,7 @@ const tracks = {
   Indy: new RaceTrack(
     "2.5 mile",
     "Speedway, IN",
-    "./assets/indy.png",
+    "./assets/indy.webp",
     "./assets/indy_top_view.webp",
     "image path",
     ["opened in 1909", "originally paved with 3.2 million bricks"],
@@ -273,7 +273,7 @@ const tracks = {
   Richmond: new RaceTrack(
     ".75 mile",
     "Henrico County, VA",
-    "./assets/richmond.png",
+    "./assets/richmond.webp",
     "./assets/richmond_top_view.webp",
     "image path",
     [
@@ -286,7 +286,7 @@ const tracks = {
   NewHampshire: new RaceTrack(
     "1.058 mile",
     "Loudon, NH",
-    "./assets/new_hampshire.png",
+    "./assets/new_hampshire.webp",
     "./assets/new_hampshire_top_view.webp",
     "image path",
     ["opened in 1990", "2-7deg banking in turns, 1deg on straights"],
@@ -296,7 +296,7 @@ const tracks = {
   WorldWideTech: new RaceTrack(
     "1.25 mile",
     "Madison, IL",
-    "./assets/wwtr.png",
+    "./assets/wwtr.webp",
     "./assets/wwtr_top_view.webp",
     "image path",
     ["opened in 1997", "11deg banking in 1 and 2, 9deg in 3 and 4"],
@@ -306,7 +306,7 @@ const tracks = {
   Homestead: new RaceTrack(
     "1.5 mile",
     "Homestead, FL",
-    "./assets/homestead.png",
+    "./assets/homestead.webp",
     "./assets/homestead_top_view.webp",
     "image path",
     ["opened in 1995", "variable 18-20deg banking in turns, 3deg on straights"],
