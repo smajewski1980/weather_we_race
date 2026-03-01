@@ -24,14 +24,34 @@ class Race {
     return info;
   }
 
+  getAdjIsoStr(date) {
+    const adjRaceDate = new Date(date);
+    // offset for the iso string
+    adjRaceDate.setHours(date.getHours() - 5);
+    const isoStr = adjRaceDate.toISOString();
+    // split off the minutes and change, the api time needs to end in :00
+    const trimmedISORaceDate = isoStr.split(":")[0];
+    return trimmedISORaceDate;
+  }
+
   async getRaceDayWeather() {
-    // will have to handle an error for an off week...
+    // will have to handle an error for an off week...or a rain out
     const data = await this.track.get7DayWeather();
     const raceDate = new Date(this.date + " " + this.time);
-    raceDate.setHours(raceDate.getHours() - 5);
-    const isoStr = raceDate.toISOString();
-    const trimmedISORaceDate = isoStr.split(":")[0];
-    const idx = data.hourly.time.indexOf(trimmedISORaceDate + ":00");
+    console.log(data);
+    // if its before the start time show weather for green flag
+    let idx;
+    if (raceDate > new Date()) {
+      const isoStr = this.getAdjIsoStr(raceDate);
+      // get the index for that times weather data
+      idx = data.hourly.time.indexOf(isoStr + ":00");
+    } else {
+      // if its during the race, show the current weather
+      const currHour = new Date().getHours();
+      const isoStr = this.getAdjIsoStr(raceDate);
+      const currIsoStr = isoStr.split("T")[0] + "T" + currHour;
+      idx = data.hourly.time.indexOf(currIsoStr + ":00");
+    }
 
     // the data
     const weatherData = [];

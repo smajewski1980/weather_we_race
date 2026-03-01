@@ -18,7 +18,7 @@ function getNextRace(sched) {
   sched.forEach((race) => {
     const raceDateTime = new Date(race.date + " " + race.time);
     // want to show the current race weather until 8 hours after the race
-    raceDateTime.setHours(raceDateTime.getHours() + 8);
+    raceDateTime.setHours(raceDateTime.getHours() + 10);
 
     if (raceDateTime > today) {
       futureRaces.push(race);
@@ -43,12 +43,18 @@ cupRaceTrackLogo.src = raceInfo.trackLogo;
 cupRaceTrackMain.src = raceInfo.trackPhoto;
 
 // load the weather data to the dom elements
+const weatherH2 = document.querySelector(".weather-info-wrapper h2");
 const weatherSpan = document.getElementById("weather-span");
 const tempSpan = document.getElementById("temp-span");
 const precipSpan = document.getElementById("precip-span");
 const cloudSpan = document.getElementById("cloud-span");
 const windSpdSpan = document.getElementById("wind-spd-span");
 const windGustSpan = document.getElementById("wind-gst-span");
+
+// if its during the race, chage the h2 to 'LIVE' from 'GREEN FLAG'
+if (new Date() > new Date(raceInfo.date + " " + raceInfo.time)) {
+  weatherH2.innerText = "LIVE WEATHER:";
+}
 
 weatherSpan.innerText = raceWeather.weather;
 tempSpan.innerText =
