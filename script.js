@@ -1,16 +1,17 @@
 import cupSchedule from "./cupSchedule.js";
+import oreillySchedule from "./oreillyScehdule.js";
 
-const cupRaceDate = document.querySelector("#next-cup-race .date");
-const cupRaceInfo = document.querySelector("#next-cup-race .track-info");
+const cupRaceDateEl = document.querySelector("#next-cup-race .date");
+const cupRaceInfoEl = document.querySelector("#next-cup-race .track-info");
+const cupRaceNameEl = document.querySelector("#next-cup-race .race-name");
+const cupRaceTrackLogoEl = document.querySelector("#next-cup-race .track-logo");
+const cupRaceTrackMainEl = document.querySelector("#next-cup-race .track-main");
 
-const cupRaceWeatherInfo = document.querySelector(
-  "#next-cup-race .weather-info",
-);
-const cupRaceName = document.querySelector("#next-cup-race .race-name");
-const cupRaceTrackLogo = document.querySelector("#next-cup-race .track-logo");
-const cupRaceTrackMain = document.querySelector("#next-cup-race .track-main");
-
-// gets the next race, unless its race day, then returns todays race
+/**
+ * gets the next race, unless its race day, then returns todays race
+ * @param {Array} sched
+ * @returns
+ */
 function getNextRace(sched) {
   let futureRaces = [];
   const today = new Date();
@@ -28,21 +29,24 @@ function getNextRace(sched) {
   return futureRaces[0];
 }
 
-const nextRace = getNextRace(cupSchedule);
-const raceInfo = nextRace.getRaceInfo();
-const raceTime = new Date("2000-01-01 " + raceInfo.time).toLocaleTimeString(
-  [],
-  { hour: "2-digit", minute: "2-digit" },
-);
-cupRaceDate.innerText = raceInfo.date + " " + raceTime;
-cupRaceInfo.innerText = raceInfo.trackLocation + " - " + raceInfo.trackLength;
-const raceWeather = await nextRace.getRaceDayWeather();
+// ----------------------handle the cup race
+const nextCupRace = getNextRace(cupSchedule);
+const cupRaceInfo = nextCupRace.getRaceInfo();
+// finese a date obj to get the time str
+const cupRaceTime = new Date(
+  "2000-01-01 " + cupRaceInfo.time,
+).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+// insert info in DOM
+cupRaceDateEl.innerText = cupRaceInfo.date + " " + cupRaceTime;
+cupRaceInfoEl.innerText =
+  cupRaceInfo.trackLocation + " - " + cupRaceInfo.trackLength;
+cupRaceNameEl.innerText = cupRaceInfo.raceName;
+cupRaceTrackLogoEl.src = cupRaceInfo.trackLogo;
+cupRaceTrackMainEl.src = cupRaceInfo.trackPhoto;
 
-cupRaceName.innerText = raceInfo.raceName;
-cupRaceTrackLogo.src = raceInfo.trackLogo;
-cupRaceTrackMain.src = raceInfo.trackPhoto;
+// get the weather data
+const cupRaceWeather = await nextCupRace.getRaceDayWeather();
 
-// load the weather data to the dom elements
 const weatherH2 = document.querySelector(".weather-info-wrapper h2");
 const weatherSpan = document.getElementById("weather-span");
 const tempSpan = document.getElementById("temp-span");
@@ -51,20 +55,30 @@ const cloudSpan = document.getElementById("cloud-span");
 const windSpdSpan = document.getElementById("wind-spd-span");
 const windGustSpan = document.getElementById("wind-gst-span");
 
-// if its during the race, chage the h2 to 'LIVE' from 'GREEN FLAG'
-if (new Date() > new Date(raceInfo.date + " " + raceInfo.time)) {
+// if its during the race, change the h2 to 'LIVE' from 'GREEN FLAG'
+if (new Date() > new Date(cupRaceInfo.date + " " + cupRaceInfo.time)) {
   weatherH2.innerText = "LIVE WEATHER:";
 }
 
-weatherSpan.innerText = raceWeather.weather;
+// load the weather data to the dom elements
+weatherSpan.innerText = cupRaceWeather.weather;
 tempSpan.innerText =
-  raceWeather.temperature_2m + raceWeather.hourly_units.temperature_2m;
+  cupRaceWeather.temperature_2m + cupRaceWeather.hourly_units.temperature_2m;
 precipSpan.innerText =
-  raceWeather.precipitation_probability +
-  raceWeather.hourly_units.precipitation_probability;
+  cupRaceWeather.precipitation_probability +
+  cupRaceWeather.hourly_units.precipitation_probability;
 cloudSpan.innerText =
-  raceWeather.cloud_cover + raceWeather.hourly_units.cloud_cover;
-windGustSpan.innerText = raceWeather.wind_gusts_10m + "mph";
-windSpdSpan.innerText = raceWeather.wind_speed_10m + "mph";
+  cupRaceWeather.cloud_cover + cupRaceWeather.hourly_units.cloud_cover;
+windGustSpan.innerText = cupRaceWeather.wind_gusts_10m + "mph";
+windSpdSpan.innerText = cupRaceWeather.wind_speed_10m + "mph";
 
-console.log(raceWeather);
+// ------------------handle the oreilly race
+const nextOreillyRace = getNextRace(oreillySchedule);
+const oreillyRaceInfo = nextOreillyRace.getRaceInfo();
+const oreillyRaceTime = new Date(
+  "2000-01-01 " + oreillyRaceInfo.time,
+).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+const oreillyRaceWeather = await nextOreillyRace.getRaceDayWeather();
+
+console.log(cupRaceWeather);
