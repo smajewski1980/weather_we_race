@@ -1,11 +1,19 @@
 import cupSchedule from "./cupSchedule.js";
 import oreillySchedule from "./oreillyScehdule.js";
+import Race from "./Race.js";
 
 const cupRaceDateEl = document.querySelector("#next-cup-race .date");
 const cupRaceInfoEl = document.querySelector("#next-cup-race .track-info");
 const cupRaceNameEl = document.querySelector("#next-cup-race .race-name");
 const cupRaceTrackLogoEl = document.querySelector("#next-cup-race .track-logo");
 const cupRaceTrackMainEl = document.querySelector("#next-cup-race .track-main");
+const weatherH2 = document.querySelector(".weather-info-wrapper h2");
+const weatherSpan = document.getElementById("weather-span");
+const tempSpan = document.getElementById("temp-span");
+const precipSpan = document.getElementById("precip-span");
+const cloudSpan = document.getElementById("cloud-span");
+const windSpdSpan = document.getElementById("wind-spd-span");
+const windGustSpan = document.getElementById("wind-gst-span");
 
 /**
  * gets the next race, unless its race day, then returns todays race
@@ -29,6 +37,16 @@ function getNextRace(sched) {
   return futureRaces[0];
 }
 
+/**
+ * checks if the races are at the same track
+ * @param {Race} race1
+ * @param {Race} race2
+ * @returns {Boolean}
+ */
+const isSameTrack = (race1, race2) => {
+  return race1.track === race2.track;
+};
+
 // ----------------------handle the cup race
 const nextCupRace = getNextRace(cupSchedule);
 const cupRaceInfo = nextCupRace.getRaceInfo();
@@ -46,14 +64,6 @@ cupRaceTrackMainEl.src = cupRaceInfo.trackPhoto;
 
 // get the weather data
 const cupRaceWeather = await nextCupRace.getRaceDayWeather();
-
-const weatherH2 = document.querySelector(".weather-info-wrapper h2");
-const weatherSpan = document.getElementById("weather-span");
-const tempSpan = document.getElementById("temp-span");
-const precipSpan = document.getElementById("precip-span");
-const cloudSpan = document.getElementById("cloud-span");
-const windSpdSpan = document.getElementById("wind-spd-span");
-const windGustSpan = document.getElementById("wind-gst-span");
 
 // if its during the race, change the h2 to 'LIVE' from 'GREEN FLAG'
 if (new Date() > new Date(cupRaceInfo.date + " " + cupRaceInfo.time)) {
@@ -81,4 +91,5 @@ const oreillyRaceTime = new Date(
 
 const oreillyRaceWeather = await nextOreillyRace.getRaceDayWeather();
 
-console.log(cupRaceWeather);
+console.log("cup", cupRaceWeather);
+console.log("oreilly", oreillyRaceWeather);
