@@ -1,3 +1,4 @@
+import craftsmanSchedule from "./craftsmanSchedule.js";
 import cupSchedule from "./cupSchedule.js";
 import oreillySchedule from "./oreillyScehdule.js";
 import Race from "./Race.js";
@@ -91,5 +92,15 @@ const oreillyRaceTime = new Date(
 
 const oreillyRaceWeather = await nextOreillyRace.getRaceDayWeather();
 
+// ----------------------handle the craftsman truck race
+const nextTruckRace = getNextRace(craftsmanSchedule);
+const truckRaceInfo = nextTruckRace.getRaceInfo();
+const truckRaceTime = new Date(
+  "2000-01-01 " + truckRaceInfo.time,
+).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+const truckRaceWeather = await nextTruckRace.getRaceDayWeather();
+
 console.log("cup", cupRaceWeather);
 console.log("oreilly", oreillyRaceWeather);
+console.log("trucks", truckRaceWeather);

@@ -34,10 +34,17 @@ class Race {
   }
 
   async getRaceDayWeather() {
-    // will have to handle an error for an off week...or a rain out
+    // if there is an off week, the weather api data only goes 7 days out
+    const sevenDayOutDate = new Date(new Date().getTime() + 604800000);
+
     const data = await this.track.get7DayWeather();
     const raceDate = new Date(this.date + " " + this.time);
-    console.log(data);
+
+    if (raceDate > sevenDayOutDate) {
+      // at some point will probably need to revisit this
+      return { msg: "off week" };
+    }
+
     // if its before the start time show weather for green flag
     let idx;
     if (raceDate > new Date()) {
