@@ -313,6 +313,16 @@ const tracks = {
     "Homestead-Miami Speedway",
     ["25.4510", "-80.4081"],
   ),
+  Rockingham: new RaceTrack(
+    "0.94 mile",
+    "Richmond County, NC",
+    "./assets/rockingham.webp",
+    "./assets/rockingham_top_view.webp",
+    "image path",
+    ["opened in 1965", "22deg banking in 1 and 2, 25deg in 3 and 4"],
+    "Rockingham Speedway",
+    ["34.97418", "-79.61042"],
+  ),
 };
 
 export default tracks;

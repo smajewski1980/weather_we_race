@@ -1,4 +1,4 @@
-import schedule from "./schedule.js";
+import cupSchedule from "./cupSchedule.js";
 
 const cupRaceDate = document.querySelector("#next-cup-race .date");
 const cupRaceInfo = document.querySelector("#next-cup-race .track-info");
@@ -28,7 +28,7 @@ function getNextRace(sched) {
   return futureRaces[0];
 }
 
-const nextRace = getNextRace(schedule);
+const nextRace = getNextRace(cupSchedule);
 const raceInfo = nextRace.getRaceInfo();
 const raceTime = new Date("2000-01-01 " + raceInfo.time).toLocaleTimeString(
   [],
