@@ -108,6 +108,18 @@ h1 {
       margin-inline: auto;
       font-weight: 700;
     }
+
+    .label-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-block: 0.5rem;
+    }
+
+    #cup-logo-sm {
+      width: 100px;
+    }
   }
   hr {
     height: 3px;
