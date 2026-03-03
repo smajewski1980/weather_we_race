@@ -8,13 +8,13 @@ const cupRaceInfoEl = document.querySelector("#next-cup-race .track-info");
 const cupRaceNameEl = document.querySelector("#next-cup-race .race-name");
 const cupRaceTrackLogoEl = document.querySelector("#next-cup-race .track-logo");
 const cupRaceTrackMainEl = document.querySelector("#next-cup-race .track-main");
-const weatherH2 = document.querySelector(".weather-info-wrapper h2");
-const weatherSpan = document.getElementById("weather-span");
-const tempSpan = document.getElementById("temp-span");
-const precipSpan = document.getElementById("precip-span");
-const cloudSpan = document.getElementById("cloud-span");
-const windSpdSpan = document.getElementById("wind-spd-span");
-const windGustSpan = document.getElementById("wind-gst-span");
+const cupWeatherH2 = document.querySelector(".cup-weather-info-wrapper h2");
+const cupWeatherSpan = document.getElementById("cup-weather-span");
+const cupTempSpan = document.getElementById("cup-temp-span");
+const cupPrecipSpan = document.getElementById("cup-precip-span");
+const cupCloudSpan = document.getElementById("cup-cloud-span");
+const cupWindSpdSpan = document.getElementById("cup-wind-spd-span");
+const cupWindGustSpan = document.getElementById("cup-wind-gst-span");
 
 /**
  * gets the next race, unless its race day, then returns todays race
@@ -68,20 +68,20 @@ const cupRaceWeather = await nextCupRace.getRaceDayWeather();
 
 // if its during the race, change the h2 to 'LIVE' from 'GREEN FLAG'
 if (new Date() > new Date(cupRaceInfo.date + " " + cupRaceInfo.time)) {
-  weatherH2.innerText = "LIVE WEATHER:";
+  cupWeatherH2.innerText = "LIVE WEATHER:";
 }
 
 // load the weather data to the dom elements
-weatherSpan.innerText = cupRaceWeather.weather;
-tempSpan.innerText =
+cupWeatherSpan.innerText = cupRaceWeather.weather;
+cupTempSpan.innerText =
   cupRaceWeather.temperature_2m + cupRaceWeather.hourly_units.temperature_2m;
-precipSpan.innerText =
+cupPrecipSpan.innerText =
   cupRaceWeather.precipitation_probability +
   cupRaceWeather.hourly_units.precipitation_probability;
-cloudSpan.innerText =
+cupCloudSpan.innerText =
   cupRaceWeather.cloud_cover + cupRaceWeather.hourly_units.cloud_cover;
-windGustSpan.innerText = cupRaceWeather.wind_gusts_10m + "mph";
-windSpdSpan.innerText = cupRaceWeather.wind_speed_10m + "mph";
+cupWindGustSpan.innerText = cupRaceWeather.wind_gusts_10m + "mph";
+cupWindSpdSpan.innerText = cupRaceWeather.wind_speed_10m + "mph";
 
 // ------------------handle the oreilly race
 const nextOreillyRace = getNextRace(oreillySchedule);
