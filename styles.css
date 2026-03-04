@@ -55,44 +55,46 @@ h1 {
   }
 }
 
-#next-cup-race {
-  /* outline: 2px solid black; */
-  /* change this hardcoded width later */
+.card {
+  width: 350px;
+  position: relative;
 
-  .card {
-    width: 350px;
-    position: relative;
+  .track-main {
+    position: absolute;
+    display: block;
+    top: 0.5rem;
+    z-index: -1;
+    border-radius: 25px;
+  }
 
-    .track-main {
-      position: absolute;
-      display: block;
-      top: 0.5rem;
-      z-index: -1;
-      border-radius: 25px;
-    }
+  .track-facts {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: none;
+  }
 
-    .track-logo {
-      position: absolute;
-      bottom: 0;
-      width: 85%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 250px;
-      height: 125px;
-    }
+  .track-logo {
+    position: absolute;
+    bottom: 0;
+    width: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 125px;
+  }
 
-    .goog-atr {
-      position: absolute;
-      top: 1.5rem;
-      color: white;
-      font-size: 0.85rem;
-      left: 50%;
-      white-space: nowrap;
-      transform: translateX(-50%);
-      background-color: hsla(0 0 0 / 0.4);
-      padding: 0.1rem 0.3rem 0.15rem;
-      border-radius: 10px;
-    }
+  .goog-atr {
+    position: absolute;
+    top: 1.5rem;
+    color: white;
+    font-size: 0.85rem;
+    left: 50%;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    background-color: hsla(0 0 0 / 0.4);
+    padding: 0.1rem 0.3rem 0.15rem;
+    border-radius: 10px;
   }
 }
 
@@ -145,4 +147,10 @@ a {
 
 .logo-sm {
   width: 100px;
+}
+
+#next-oreilly-race {
+  .track-logo {
+    display: none;
+  }
 }

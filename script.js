@@ -3,8 +3,14 @@ import cupSchedule from "./cupSchedule.js";
 import oreillySchedule from "./oreillyScehdule.js";
 import Race from "./Race.js";
 
-const cupRaceTrackLogoEl = document.querySelector("#next-cup-race .track-logo");
 const cupRaceTrackMainEl = document.querySelector("#next-cup-race .track-main");
+const cupRaceTrackLogoEl = document.querySelector("#next-cup-race .track-logo");
+const oreillyRaceTrackMainEl = document.querySelector(
+  "#next-oreilly-race .track-main",
+);
+const oreillyRaceTrackLogoEl = document.querySelector(
+  "#next-oreilly-race .track-logo",
+);
 const cupRaceNameEl = document.querySelector("#next-cup-race .race-name");
 const cupRaceInfoEl = document.querySelector("#next-cup-race .track-info");
 const cupRaceDateEl = document.querySelector("#next-cup-race .date");
@@ -32,7 +38,8 @@ const oreillyPrecipSpan = document.getElementById("oreilly-precip-span");
 const oreillyCloudSpan = document.getElementById("oreilly-cloud-span");
 const oreillyWindSpdSpan = document.getElementById("oreilly-wind-spd-span");
 const oreillyWindGustSpan = document.getElementById("oreilly-wind-gst-span");
-
+const oreillyCardFact1 = document.getElementById("or-fact-1");
+const oreillyCardFact2 = document.getElementById("or-fact-2");
 /**
  * gets the next race, unless its race day, then returns todays race
  * @param {Array} sched
@@ -61,8 +68,8 @@ function getNextRace(sched) {
  * @param {Race} race2
  * @returns {Boolean}
  */
-const isSameTrack = (race1, race2) => {
-  return race1.track === race2.track;
+const isSameTrack = (track1, track2) => {
+  return track1 === track2;
 };
 
 // ----------------------handle the cup race
@@ -112,6 +119,24 @@ oreillyRaceDateEl.innerText = oreillyRaceInfo.date + " " + oreillyRaceTime;
 oreillyRaceInfoEl.innerText =
   oreillyRaceInfo.trackLocation + " - " + oreillyRaceInfo.trackLength;
 oreillyRaceNameEl.innerText = oreillyRaceInfo.raceName;
+
+// if at the same track as cup, load a different pic
+if (isSameTrack(nextCupRace.track, nextOreillyRace.track)) {
+  oreillyRaceTrackMainEl.src = "./assets/placeholder_img.webp";
+  // make the track facts element background the whatever we make image
+  // add data over that
+  oreillyCardFact1.parentElement.style.display = "block";
+  oreillyCardFact1.innerText = nextOreillyRace.track.trackFacts[0];
+  oreillyCardFact2.innerText = nextOreillyRace.track.trackFacts[1];
+} else {
+  // set up for stand alone race weekend
+  // load main track pic src
+  oreillyRaceTrackMainEl.src = oreillyRaceInfo.trackPhoto;
+  // load logo src
+  oreillyRaceTrackLogoEl.src = oreillyRaceInfo.trackLogo;
+  // logo element visible
+  oreillyRaceTrackLogoEl.style.display = "block";
+}
 
 // get the weather data
 const oreillyRaceWeather = await nextOreillyRace.getRaceDayWeather();

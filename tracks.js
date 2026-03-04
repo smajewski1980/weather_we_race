@@ -343,8 +343,17 @@ const tracks = {
     "Lime Rock Park",
     ["41.93", "-73.39"],
   ),
-  // Indianapolis Raceway Park
-  // IRP: new RaceTrack(),
+  IRP: new RaceTrack(
+    // Indianapolis Raceway Park
+    "0.686 mile",
+    "Brownsburg, IN",
+    "./assets/irp.webp",
+    "./assets/irp_top_view.webp",
+    "image3",
+    ["opened in 1960", "flat track"],
+    "Lucas Oil Indianapolis Raceway Park",
+    ["39.812778", "-86.340833"],
+  ),
 };
 
 export default tracks;
