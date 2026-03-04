@@ -323,7 +323,16 @@ const tracks = {
     "Rockingham Speedway",
     ["34.97418", "-79.61042"],
   ),
-  // GrandPrixOfStPetersburg: new RaceTrack(),
+  GrandPrixOfStPetersburg: new RaceTrack(
+    "1.8 mile",
+    "St. Petersburg, FL",
+    "./assets/st_petes.webp",
+    "./assets/st_petes_top_view",
+    "image3",
+    ["inaugural eve nt was 1985", "14 turn street course"],
+    "The Firestone Grand Prix of St. Petersburg",
+    ["27.7667", "-82.6333"],
+  ),
   // LimeRock: new RaceTrack(),
   // Indianapolis Raceway Park
   // IRP: new RaceTrack(),
