@@ -3,11 +3,11 @@ import cupSchedule from "./cupSchedule.js";
 import oreillySchedule from "./oreillyScehdule.js";
 import Race from "./Race.js";
 
-const cupRaceDateEl = document.querySelector("#next-cup-race .date");
-const cupRaceInfoEl = document.querySelector("#next-cup-race .track-info");
-const cupRaceNameEl = document.querySelector("#next-cup-race .race-name");
 const cupRaceTrackLogoEl = document.querySelector("#next-cup-race .track-logo");
 const cupRaceTrackMainEl = document.querySelector("#next-cup-race .track-main");
+const cupRaceNameEl = document.querySelector("#next-cup-race .race-name");
+const cupRaceInfoEl = document.querySelector("#next-cup-race .track-info");
+const cupRaceDateEl = document.querySelector("#next-cup-race .date");
 const cupWeatherH2 = document.querySelector(".cup-weather-info-wrapper h2");
 const cupWeatherSpan = document.getElementById("cup-weather-span");
 const cupTempSpan = document.getElementById("cup-temp-span");
@@ -15,6 +15,23 @@ const cupPrecipSpan = document.getElementById("cup-precip-span");
 const cupCloudSpan = document.getElementById("cup-cloud-span");
 const cupWindSpdSpan = document.getElementById("cup-wind-spd-span");
 const cupWindGustSpan = document.getElementById("cup-wind-gst-span");
+
+const oreillyRaceNameEl = document.querySelector(
+  "#next-oreilly-race .race-name",
+);
+const oreillyRaceInfoEl = document.querySelector(
+  "#next-oreilly-race .track-info",
+);
+const oreillyRaceDateEl = document.querySelector("#next-oreilly-race .date");
+const oreillyWeatherH2 = document.querySelector(
+  ".oreilly-weather-info-wrapper h2",
+);
+const oreillyWeatherSpan = document.getElementById("oreilly-weather-span");
+const oreillyTempSpan = document.getElementById("oreilly-temp-span");
+const oreillyPrecipSpan = document.getElementById("oreilly-precip-span");
+const oreillyCloudSpan = document.getElementById("oreilly-cloud-span");
+const oreillyWindSpdSpan = document.getElementById("oreilly-wind-spd-span");
+const oreillyWindGustSpan = document.getElementById("oreilly-wind-gst-span");
 
 /**
  * gets the next race, unless its race day, then returns todays race
@@ -86,11 +103,36 @@ cupWindSpdSpan.innerText = cupRaceWeather.wind_speed_10m + "mph";
 // ------------------handle the oreilly race
 const nextOreillyRace = getNextRace(oreillySchedule);
 const oreillyRaceInfo = nextOreillyRace.getRaceInfo();
+// finese a date obj to get the time str
 const oreillyRaceTime = new Date(
   "2000-01-01 " + oreillyRaceInfo.time,
 ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+//insert info in DOM
+oreillyRaceDateEl.innerText = oreillyRaceInfo.date + " " + oreillyRaceTime;
+oreillyRaceInfoEl.innerText =
+  oreillyRaceInfo.trackLocation + " - " + oreillyRaceInfo.trackLength;
+oreillyRaceNameEl.innerText = oreillyRaceInfo.raceName;
 
+// get the weather data
 const oreillyRaceWeather = await nextOreillyRace.getRaceDayWeather();
+
+// if its during the race, change the h2 to 'LIVE' from 'GREEN FLAG'
+if (new Date() > new Date(oreillyRaceInfo.date + " " + oreillyRaceInfo.time)) {
+  oreillyWeatherH2.innerText = "LIVE WEATHER:";
+}
+
+// load the weather data to the dom elements
+oreillyWeatherSpan.innerText = oreillyRaceWeather.weather;
+oreillyTempSpan.innerText =
+  oreillyRaceWeather.temperature_2m +
+  oreillyRaceWeather.hourly_units.temperature_2m;
+oreillyPrecipSpan.innerText =
+  oreillyRaceWeather.precipitation_probability +
+  oreillyRaceWeather.hourly_units.precipitation_probability;
+oreillyCloudSpan.innerText =
+  oreillyRaceWeather.cloud_cover + oreillyRaceWeather.hourly_units.cloud_cover;
+oreillyWindGustSpan.innerText = oreillyRaceWeather.wind_gusts_10m + "mph";
+oreillyWindSpdSpan.innerText = oreillyRaceWeather.wind_speed_10m + "mph";
 
 // ----------------------handle the craftsman truck race
 const nextTruckRace = getNextRace(craftsmanSchedule);
