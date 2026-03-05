@@ -40,7 +40,7 @@ const tracks = {
     "./assets/echo_park_speedway.webp",
     "./assets/atlanta_top_view.webp",
     "image path",
-    ["opened in 1960", "28deg banking", "2026 winners: Tyler Reddick"],
+    ["opened in 1960", "28deg banking", "2026 winners:\nTyler Reddick"],
     "Echopark Speedway",
     ["33.3813", "-84.3160"],
   ),
@@ -322,7 +322,7 @@ const tracks = {
     [
       "opened in 1964",
       "reconfigured in 2018",
-      "2025 Winners: Christopher Bell, Ryan Blaney",
+      "2025 Winners:\nChristopher Bell\nRyan Blaney", //<----may revisit the new line thing
     ],
     "Phoenix Raceway",
     ["33.3756", "-112.3116"],

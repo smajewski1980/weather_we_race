@@ -38,8 +38,8 @@ const oreillyPrecipSpan = document.getElementById("oreilly-precip-span");
 const oreillyCloudSpan = document.getElementById("oreilly-cloud-span");
 const oreillyWindSpdSpan = document.getElementById("oreilly-wind-spd-span");
 const oreillyWindGustSpan = document.getElementById("oreilly-wind-gst-span");
-const oreillyCardFact1 = document.getElementById("or-fact-1");
-const oreillyCardFact2 = document.getElementById("or-fact-2");
+const trackFacts = document.querySelector(".track-facts");
+
 /**
  * gets the next race, unless its race day, then returns todays race
  * @param {Array} sched
@@ -122,12 +122,15 @@ oreillyRaceNameEl.innerText = oreillyRaceInfo.raceName;
 
 // if at the same track as cup, load a different pic
 if (isSameTrack(nextCupRace.track, nextOreillyRace.track)) {
-  oreillyRaceTrackMainEl.src = "./assets/placeholder_img.webp";
-  // make the track facts element background the whatever we make image
-  // add data over that
-  oreillyCardFact1.parentElement.style.display = "block";
-  oreillyCardFact1.innerText = nextOreillyRace.track.trackFacts[0];
-  oreillyCardFact2.innerText = nextOreillyRace.track.trackFacts[1];
+  //display the alternate card content
+  trackFacts.style.display = "grid";
+  trackFacts.style.backgroundImage = 'url("./assets/placeholder_img.webp")';
+  // loop through the track facts and add to trackFacts element
+  nextCupRace.track.trackFacts.forEach((fact) => {
+    const p = document.createElement("p");
+    p.innerText = fact;
+    trackFacts.append(p);
+  });
 } else {
   // set up for stand alone race weekend
   // load main track pic src
