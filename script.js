@@ -124,7 +124,7 @@ oreillyRaceNameEl.innerText = oreillyRaceInfo.raceName;
 if (isSameTrack(nextCupRace.track, nextOreillyRace.track)) {
   //display the alternate card content
   trackFacts.style.display = "grid";
-  trackFacts.style.backgroundImage = 'url("./assets/placeholder_img.webp")';
+  trackFacts.style.backgroundImage = 'url("./assets/track_facts_bg.webp")';
   // loop through the track facts and add to trackFacts element
   nextCupRace.track.trackFacts.forEach((fact) => {
     const p = document.createElement("p");
