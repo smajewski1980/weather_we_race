@@ -83,6 +83,10 @@ h1 {
       font-weight: 500;
       font-size: 1.25rem;
       margin-block-end: 0.5rem;
+
+      span {
+        font-weight: 700;
+      }
     }
   }
 
@@ -111,7 +115,7 @@ h1 {
 }
 
 #next-oreilly-race {
-  .to-hide-flag-edge-wrapper {
+  .decor-flag {
     overflow: hidden;
     position: absolute;
     bottom: 0.55rem;
@@ -119,7 +123,7 @@ h1 {
     right: 0;
     border-radius: 0 0 35px 35px;
   }
-  .to-hide-flag-edge-wrapper::after {
+  .decor-flag::after {
     content: "";
     background-image: url("./assets/decoration_flag.svg");
     width: 100%;

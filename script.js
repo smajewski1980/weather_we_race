@@ -128,7 +128,7 @@ if (isSameTrack(nextCupRace.track, nextOreillyRace.track)) {
   // loop through the track facts and add to trackFacts element
   nextCupRace.track.trackFacts.forEach((fact) => {
     const p = document.createElement("p");
-    p.innerText = fact;
+    p.innerHTML = fact;
     trackFacts.append(p);
   });
 } else {
