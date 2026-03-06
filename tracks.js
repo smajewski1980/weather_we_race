@@ -53,7 +53,7 @@ const tracks = {
     [
       "opened in 1961",
       "24-28deg prog banking in turns",
-      "2025 Winners: Kyle Larson, Christopher Bell",
+      "2025 Winners:\nKyle Larson\nChristopher Bell",
     ],
     "Bristol Motor Speedway",
     ["36.5159", "-82.2571"],
@@ -67,7 +67,7 @@ const tracks = {
     [
       "opened in 1960",
       "24deg banking in turns, 5deg on straights",
-      "2025 Winners: Ross Chastain, Shane van Gisbergen",
+      "2025 Winners:\nRoss Chastain\nShane van Gisbergen",
     ],
     "Charlotte Motor Speedway",
     ["35.3516", "-80.6848"],
@@ -81,7 +81,7 @@ const tracks = {
     [
       "opened in 2001",
       "18deg banking in turns, 11deg on frontstretch",
-      "2019 Winner: Alex Bowman",
+      "2019 Winner:\nAlex Bowman",
     ],
     "Chicagoland Speedway",
     ["41", "-88"],
@@ -92,7 +92,7 @@ const tracks = {
     "./assets/cota.webp",
     "./assets/cota_top_view.webp",
     "image path",
-    ["opened in 2012", "has 20 turns", "2026 winners: Tyler Reddick"],
+    ["opened in 2012", "20 turn road course", "2026 winners:\nTyler Reddick"],
     "Circuit Of The Americas",
     ["30.1329", "-97.6375"],
   ),
@@ -105,7 +105,7 @@ const tracks = {
     [
       "opened in 1950",
       "25deg banking in 1 and 2, 23deg in 3 and 4",
-      "2025 Winners: Denny Hamlin, Chase Briscoe",
+      "2025 Winners:\nDenny Hamlin\nChase Briscoe",
     ],
     "Darlington Raceway",
     ["34.2952", "-79.9063"],
@@ -119,7 +119,7 @@ const tracks = {
     [
       "opened in 1959",
       "31deg banking in the turns, 18deg in the tri-oval",
-      "2026 winners: Tyler Reddick",
+      "2026 winners:\nTyler Reddick",
     ],
     "Daytona International Speedway",
     ["29.1852", "-81.0700"],
@@ -133,7 +133,7 @@ const tracks = {
     [
       "opened in 1969",
       "24deg banking in turns, 9deg on straights",
-      "2025 Winner: Denny Hamlin",
+      "2025 Winner:\nDenny Hamlin",
     ],
     "Dover Motor Speedway",
     ["39.1901", "-75.5306"],
@@ -145,9 +145,9 @@ const tracks = {
     "./assets/st_petes_top_view.webp",
     "image3",
     [
-      "inaugural eve nt was 1985",
+      "inaugural event was 1985",
       "14 turn street course",
-      "2026 Winner: Layne Riggs",
+      "2026 Winner:\nLayne Riggs",
     ],
     "The Firestone Grand Prix of St. Petersburg",
     ["27.7667", "-82.6333"],
@@ -161,7 +161,7 @@ const tracks = {
     [
       "opened in 1995",
       "variable 18-20deg banking in turns, 3deg on straights",
-      "2025 Winner: Kyle Larson",
+      "2025 Winner:\nKyle Larson",
     ],
     "Homestead-Miami Speedway",
     ["25.4510", "-80.4081"],
@@ -174,8 +174,9 @@ const tracks = {
     "image path",
     [
       "opened in 1909",
+      "9deg banking in turns",
       "originally paved with 3.2 million bricks",
-      "2025 Winner: Bubba Wallace",
+      "2025 Winner:\nBubba Wallace",
     ],
     "The Indianapolis Motor Speedway",
     ["39.7953", "-86.2348"],
@@ -189,7 +190,7 @@ const tracks = {
     [
       "opened in 2006",
       "variable banking 12-14deg in turns, 4-11deg on frontstretch",
-      "2025 Winner: William Byron",
+      "2025 Winner:\nWilliam Byron",
     ],
     "Iowa Speedway",
     ["41.6791", "-93.0031"],
@@ -201,7 +202,11 @@ const tracks = {
     "./assets/irp.webp",
     "./assets/irp_top_view.webp",
     "image3",
-    ["opened in 1960", "flat track", "2025 Winner: Layne Riggs"],
+    [
+      "opened in 1960",
+      "7-12 deg banking in the turns",
+      "2025 Winner:\nLayne Riggs",
+    ],
     "Lucas Oil Indianapolis Raceway Park",
     ["39.812778", "-86.340833"],
   ),
@@ -214,7 +219,7 @@ const tracks = {
     [
       "opened in 2001",
       "17-20deg banking in turns, 9-11deg on frontstretch",
-      "2025 Winners: Kyle Larson, Chase Elliot",
+      "2025 Winners:\nKyle Larson\nChase Elliot",
     ],
     "Kansas Speedway",
     ["39.1159", "-94.8334"],
@@ -228,7 +233,7 @@ const tracks = {
     [
       "opened in 1996",
       "20deg banking in turns, 9-12deg on straightaways",
-      "2025 Winners: Josh Berry, Denny Hamlin",
+      "2025 Winners:\nJosh Berry\nDenny Hamlin",
     ],
     "Las Vegas Motor Speedway",
     ["36.2733", "-115.0113"],
@@ -239,7 +244,7 @@ const tracks = {
     "./assets/lime_rock.webp",
     "./assets/lime_rock_top_view.webp",
     "image3",
-    ["opened in 1957", "7 turn road course", "2025 Winner: Corey Heim"],
+    ["opened in 1957", "7 turn road course", "2025 Winner:\nCorey Heim"],
     "Lime Rock Park",
     ["41.93", "-73.39"],
   ),
@@ -251,8 +256,8 @@ const tracks = {
     "image path",
     [
       "opened in 1947",
-      "12deg banking",
-      "2025 Winners: Denny Hamlin, William Byron",
+      "12deg banking in the turns",
+      "2025 Winners:\nDenny Hamlin\nWilliam Byron",
     ],
     "Martinsville Speedway",
     ["36.6536", "-79.8517"],
@@ -266,7 +271,7 @@ const tracks = {
     [
       "opened in 1968",
       "18deg banking in turns 12deg on frontstretch",
-      "2025 Winner: Denny Hamlin",
+      "2025 Winner:\nDenny Hamlin",
     ],
     "Michigan International Speedway",
     ["42.0654", "-84.2389"],
@@ -280,7 +285,7 @@ const tracks = {
     [
       "opened in 2001",
       "14deg banking in the turns",
-      "2025 Winner: Ryan Blaney",
+      "2025 Winner:\nRyan Blaney",
     ],
     "Nashville Superspeedway",
     ["36.1426", "-86.3533"],
@@ -291,11 +296,7 @@ const tracks = {
     "./assets/new_hampshire.webp",
     "./assets/new_hampshire_top_view.webp",
     "image path",
-    [
-      "opened in 1990",
-      "2-7deg banking in turns, 1deg on straights",
-      "2025 Winner: Ryan Blaney",
-    ],
+    ["opened in 1990", "2-7deg banking in turns", "2025 Winner:\nRyan Blaney"],
     "New Hampshire Motor Speedway",
     ["43.3617", "-71.4650"],
   ),
@@ -308,7 +309,7 @@ const tracks = {
     [
       "opened in 1947",
       "13deg banking in the turns",
-      "1996 Winner: Jeff Gordon",
+      "1996 Winner:\nJeff Gordon",
     ],
     "North Wilkesboro Speedway",
     ["36.1426", "-81.0730"],
@@ -320,9 +321,9 @@ const tracks = {
     "./assets/phoenix_top_view.webp",
     "image path",
     [
-      "opened in 1964",
-      "reconfigured in 2018",
-      "2025 Winners:\nChristopher Bell\nRyan Blaney", //<----may revisit the new line thing
+      "Opened: 1964",
+      "Banking:\n8-9deg in 1 and 2\n11deg in 3 and 4",
+      "2025 Winners:\nChristopher Bell\nRyan Blaney",
     ],
     "Phoenix Raceway",
     ["33.3756", "-112.3116"],
@@ -336,7 +337,7 @@ const tracks = {
     [
       "opened in 1969",
       "14deg, 8deg, 6deg banking in turns 1, 2, 3",
-      "2025 Winner: Chase Briscoe",
+      "2025 Winner:\nChase Briscoe",
     ],
     "Pocono Raceway",
     ["41.0553", "-75.5100"],
@@ -350,7 +351,7 @@ const tracks = {
     [
       "opened in 1946",
       "14deg banking in turns, 8deg on frontstretch, 2deg on backstretch",
-      "2025 Winner: Austin Dillon",
+      "2025 Winner:\nAustin Dillon",
     ],
     "Richmond Raceway",
     ["37.5939", "-77.4206"],
@@ -364,7 +365,7 @@ const tracks = {
     [
       "opened in 1965",
       "22deg banking in 1 and 2, 25deg in 3 and 4",
-      "2004 Winner: Matt Kenseth",
+      "2004 Winner:\nMatt Kenseth",
     ],
     "Rockingham Speedway",
     ["34.97418", "-79.61042"],
@@ -388,7 +389,7 @@ const tracks = {
     [
       "opened in 1968",
       "12 turn road course",
-      "2025 Winner: Shane van Gisbergen",
+      "2025 Winner:\nShane van Gisbergen",
     ],
     "Sonoma Raceway",
     ["38.1631", "-122.4597"],
@@ -402,7 +403,7 @@ const tracks = {
     [
       "opened in 1969",
       "33deg banking in turns",
-      "2025 Winners: Austin Cindric, Chase Briscoe",
+      "2025 Winners:\nAustin Cindric\nChase Briscoe",
     ],
     "Talledega Superspeedway",
     ["33.5673", "-86.0671"],
@@ -416,7 +417,7 @@ const tracks = {
     [
       "opened in 1997",
       "20deg banking in 1 and 2, 24deg in 3 and 4, 5deg on straights",
-      "2025 Winner: Joey Logano",
+      "2025 Winner:\nJoey Logano",
     ],
     "Texas Motor Speedway",
     ["33.0367", "-97.2828"],
@@ -429,8 +430,8 @@ const tracks = {
     "image path",
     [
       "opened in 1948",
-      "141 ft elevation change in the esses",
-      "2025 Winner: Shane van Gisbergen",
+      "7 turn road course",
+      "2025 Winner:\nShane van Gisbergen",
     ],
     "Watkins Glen International",
     ["42.3333", "-76.9236"],
@@ -444,7 +445,7 @@ const tracks = {
     [
       "opened in 1997",
       "11deg banking in 1 and 2, 9deg in 3 and 4",
-      "2025 Winner: Denny Hamlin",
+      "2025 Winner:\nDenny Hamlin",
     ],
     "World Wide Technology Raceway",
     ["38.6513", "-90.1364"],
