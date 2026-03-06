@@ -73,6 +73,10 @@ const isSameTrack = (track1, track2) => {
 };
 
 // ----------------------handle the cup race
+
+// have to figure out an off week
+// .cup-off-week-msg need to go display grid
+
 const nextCupRace = getNextRace(cupSchedule);
 const cupRaceInfo = nextCupRace.getRaceInfo();
 // finese a date obj to get the time str
