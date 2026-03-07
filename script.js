@@ -140,27 +140,6 @@ oreillyRaceInfoEl.innerText =
   oreillyRaceInfo.trackLocation + " - " + oreillyRaceInfo.trackLength;
 oreillyRaceNameEl.innerText = oreillyRaceInfo.raceName;
 
-// if at the same track as cup, load a different pic
-if (isSameTrack(nextCupRace.track, nextOreillyRace.track)) {
-  //display the alternate card content
-  trackFacts.style.display = "grid";
-  trackFacts.style.backgroundImage = 'url("./assets/track_facts_bg.webp")';
-  // loop through the track facts and add to trackFacts element
-  nextCupRace.track.trackFacts.forEach((fact) => {
-    const p = document.createElement("p");
-    p.innerHTML = fact;
-    trackFacts.append(p);
-  });
-} else {
-  // set up for stand alone race weekend
-  // load main track pic src
-  oreillyRaceTrackMainEl.src = oreillyRaceInfo.trackPhoto;
-  // load logo src
-  oreillyRaceTrackLogoEl.src = oreillyRaceInfo.trackLogo;
-  // logo element visible
-  oreillyRaceTrackLogoEl.style.display = "block";
-}
-
 // get the weather data
 const oreillyRaceWeather = await nextOreillyRace.getRaceDayWeather();
 
@@ -169,18 +148,49 @@ if (new Date() > new Date(oreillyRaceInfo.date + " " + oreillyRaceInfo.time)) {
   oreillyWeatherH2.innerText = "LIVE WEATHER:";
 }
 
+function displayTrackFacts(trackFacts) {
+  trackFacts.style.display = "grid";
+  trackFacts.style.backgroundImage = 'url("./assets/track_facts_bg.webp")';
+  // loop through the track facts and add to trackFacts element
+  nextCupRace.track.trackFacts.forEach((fact) => {
+    const p = document.createElement("p");
+    p.innerHTML = fact;
+    trackFacts.append(p);
+  });
+}
+
 // load the weather data to the dom elements
-oreillyWeatherSpan.innerText = oreillyRaceWeather.weather;
-oreillyTempSpan.innerText =
-  oreillyRaceWeather.temperature_2m +
-  oreillyRaceWeather.hourly_units.temperature_2m;
-oreillyPrecipSpan.innerText =
-  oreillyRaceWeather.precipitation_probability +
-  oreillyRaceWeather.hourly_units.precipitation_probability;
-oreillyCloudSpan.innerText =
-  oreillyRaceWeather.cloud_cover + oreillyRaceWeather.hourly_units.cloud_cover;
-oreillyWindGustSpan.innerText = oreillyRaceWeather.wind_gusts_10m + "mph";
-oreillyWindSpdSpan.innerText = oreillyRaceWeather.wind_speed_10m + "mph";
+if (!oreillyRaceWeather.msg) {
+  // if at the same track as cup, load a different pic
+  if (isSameTrack(nextCupRace.track, nextOreillyRace.track)) {
+    //display the alternate card content
+    displayTrackFacts(trackFacts);
+  } else {
+    // set up for stand alone race weekend
+    // load main track pic src
+    oreillyRaceTrackMainEl.src = oreillyRaceInfo.trackPhoto;
+    // load logo src
+    oreillyRaceTrackLogoEl.src = oreillyRaceInfo.trackLogo;
+    // logo element visible
+    oreillyRaceTrackLogoEl.style.display = "block";
+  }
+  oreillyWeatherSpan.innerText = oreillyRaceWeather.weather;
+  oreillyTempSpan.innerText =
+    oreillyRaceWeather.temperature_2m +
+    oreillyRaceWeather.hourly_units.temperature_2m;
+  oreillyPrecipSpan.innerText =
+    oreillyRaceWeather.precipitation_probability +
+    oreillyRaceWeather.hourly_units.precipitation_probability;
+  oreillyCloudSpan.innerText =
+    oreillyRaceWeather.cloud_cover +
+    oreillyRaceWeather.hourly_units.cloud_cover;
+  oreillyWindGustSpan.innerText = oreillyRaceWeather.wind_gusts_10m + "mph";
+  oreillyWindSpdSpan.innerText = oreillyRaceWeather.wind_speed_10m + "mph";
+} else {
+  displayTrackFacts(trackFacts);
+  oreillyWeatherH2.parentElement.innerHTML =
+    "<p>This is no race this week.</p>";
+}
 
 // ----------------------handle the craftsman truck race
 const nextTruckRace = getNextRace(craftsmanSchedule);
