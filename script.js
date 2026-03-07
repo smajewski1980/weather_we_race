@@ -21,6 +21,7 @@ const cupPrecipSpan = document.getElementById("cup-precip-span");
 const cupCloudSpan = document.getElementById("cup-cloud-span");
 const cupWindSpdSpan = document.getElementById("cup-wind-spd-span");
 const cupWindGustSpan = document.getElementById("cup-wind-gst-span");
+const cupOffWeekOverlay = document.querySelector(".cup-off-week-msg");
 
 const oreillyRaceNameEl = document.querySelector(
   "#next-oreilly-race .race-name",
@@ -46,20 +47,34 @@ const trackFacts = document.querySelector(".track-facts");
  * @returns
  */
 function getNextRace(sched) {
-  let futureRaces = [];
+  const futureRaces = [];
+  const pastRaces = [];
   const today = new Date();
+  let isOffWeek = false;
 
   sched.forEach((race) => {
+    // this will track the past races, for an off cup week, we will show
+    // the last race for another week with an overlay
     const raceDateTime = new Date(race.date + " " + race.time);
     // want to show the current race weather until 8 hours after the race
     raceDateTime.setHours(raceDateTime.getHours() + 10);
 
     if (raceDateTime > today) {
       futureRaces.push(race);
+    } else {
+      pastRaces.push(race);
     }
   });
-
-  return futureRaces[0];
+  const nextRace = futureRaces[0];
+  const nextRaceDateTime = new Date(nextRace.date + " " + nextRace.time);
+  const nextRaceTimeInMs = nextRaceDateTime.getTime();
+  const nowInMs = today.getTime();
+  const oneWeekInMs = 6.048e8;
+  if (nextRaceTimeInMs > nowInMs + oneWeekInMs) {
+    isOffWeek = true;
+  }
+  // console.log(pastRaces[pastRaces.length - 1]);
+  return isOffWeek ? pastRaces[pastRaces.length - 1] : futureRaces[0];
 }
 
 /**
@@ -73,10 +88,6 @@ const isSameTrack = (track1, track2) => {
 };
 
 // ----------------------handle the cup race
-
-// have to figure out an off week
-// .cup-off-week-msg need to go display grid
-
 const nextCupRace = getNextRace(cupSchedule);
 const cupRaceInfo = nextCupRace.getRaceInfo();
 // finese a date obj to get the time str
@@ -100,16 +111,21 @@ if (new Date() > new Date(cupRaceInfo.date + " " + cupRaceInfo.time)) {
 }
 
 // load the weather data to the dom elements
-cupWeatherSpan.innerText = cupRaceWeather.weather;
-cupTempSpan.innerText =
-  cupRaceWeather.temperature_2m + cupRaceWeather.hourly_units.temperature_2m;
-cupPrecipSpan.innerText =
-  cupRaceWeather.precipitation_probability +
-  cupRaceWeather.hourly_units.precipitation_probability;
-cupCloudSpan.innerText =
-  cupRaceWeather.cloud_cover + cupRaceWeather.hourly_units.cloud_cover;
-cupWindGustSpan.innerText = cupRaceWeather.wind_gusts_10m + "mph";
-cupWindSpdSpan.innerText = cupRaceWeather.wind_speed_10m + "mph";
+if (!cupRaceWeather.msg) {
+  cupWeatherSpan.innerText = cupRaceWeather.weather;
+  cupTempSpan.innerText =
+    cupRaceWeather.temperature_2m + cupRaceWeather.hourly_units.temperature_2m;
+  cupPrecipSpan.innerText =
+    cupRaceWeather.precipitation_probability +
+    cupRaceWeather.hourly_units.precipitation_probability;
+  cupCloudSpan.innerText =
+    cupRaceWeather.cloud_cover + cupRaceWeather.hourly_units.cloud_cover;
+  cupWindGustSpan.innerText = cupRaceWeather.wind_gusts_10m + "mph";
+  cupWindSpdSpan.innerText = cupRaceWeather.wind_speed_10m + "mph";
+} else {
+  cupWeatherH2.parentElement.innerHTML = "<p>This is no race this week.</p>";
+  cupOffWeekOverlay.style.display = "grid";
+}
 
 // ------------------handle the oreilly race
 const nextOreillyRace = getNextRace(oreillySchedule);

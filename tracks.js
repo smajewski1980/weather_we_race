@@ -337,7 +337,7 @@ const tracks = {
     "./assets/phoenix_top_view.webp",
     "image path",
     [
-      "<span>Opened:</span><br><br>1964",
+      "<span>Opened:</span><br>1964",
       "<span>Banking:</span><br>8-9deg in 1 and 2<br>11deg in 3 and 4",
       "<span>2025 Winners:</span><br>Christopher Bell<br>Ryan Blaney",
     ],
