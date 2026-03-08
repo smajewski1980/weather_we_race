@@ -36,8 +36,11 @@ class Race {
   async getRaceDayWeather() {
     const data = await this.track.get7DayWeather();
     const raceDate = new Date(this.date + " " + this.time);
+    const raceDateOffset = new Date(raceDate).setHours(
+      raceDate.getHours() + 10,
+    );
 
-    if (raceDate < Date.now()) {
+    if (raceDateOffset < Date.now()) {
       return { msg: "off week" };
     }
 
