@@ -138,9 +138,10 @@ const options = {
   minute: "numeric", // "26"
   hour12: true, // Use 12-hour clock (PM/AM)
 };
-cupRaceDateEl.innerText = new Intl.DateTimeFormat("en-US", options).format(
+cupRaceDateEl.innerText = new Intl.DateTimeFormat(undefined, options).format(
   anotherDateObj,
 );
+console.log(new Intl.DateTimeFormat(undefined, options).format(anotherDateObj));
 // cupRaceDateEl.innerText = cupRaceInfo.date + " " + cupRaceTime;
 cupRaceInfoEl.innerText =
   cupRaceInfo.trackLocation + " - " + cupRaceInfo.trackLength;
