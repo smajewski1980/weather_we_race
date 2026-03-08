@@ -33,6 +33,7 @@ main {
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 1000px;
 }
 
 h1 {

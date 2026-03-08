@@ -40,6 +40,16 @@ const oreillyCloudSpan = document.getElementById("oreilly-cloud-span");
 const oreillyWindSpdSpan = document.getElementById("oreilly-wind-spd-span");
 const oreillyWindGustSpan = document.getElementById("oreilly-wind-gst-span");
 const trackFacts = document.querySelector(".track-facts");
+const truckRaceNameEl = document.querySelector("#next-truck-race .race-name");
+const truckRaceInfoEl = document.querySelector("#next-truck-race .track-info");
+const truckRaceDateEl = document.querySelector("#next-truck-race .date");
+const truckWeatherH2 = document.querySelector(".truck-weather-info-wrapper h2");
+const truckWeatherSpan = document.getElementById("truck-weather-span");
+const truckTempSpan = document.getElementById("truck-temp-span");
+const truckPrecipSpan = document.getElementById("truck-precip-span");
+const truckCloudSpan = document.getElementById("truck-cloud-span");
+const truckWindSpdSpan = document.getElementById("truck-wind-spd-span");
+const truckWindGustSpan = document.getElementById("truck-wind-gst-span");
 
 /**
  * gets the next race, unless its race day, then returns todays race
@@ -75,6 +85,21 @@ function getNextRace(sched) {
   }
   // console.log(pastRaces[pastRaces.length - 1]);
   return isOffWeek ? pastRaces[pastRaces.length - 1] : futureRaces[0];
+}
+
+/**
+ * this function loads the track facts to the given element
+ * @param {HTMLDivElement} trackFacts
+ */
+function displayTrackFacts(trackFacts) {
+  trackFacts.style.display = "grid";
+  trackFacts.style.backgroundImage = 'url("./assets/track_facts_bg.webp")';
+  // loop through the track facts and add to trackFacts element
+  nextCupRace.track.trackFacts.forEach((fact) => {
+    const p = document.createElement("p");
+    p.innerHTML = fact;
+    trackFacts.append(p);
+  });
 }
 
 /**
@@ -123,7 +148,7 @@ if (!cupRaceWeather.msg) {
   cupWindGustSpan.innerText = cupRaceWeather.wind_gusts_10m + "mph";
   cupWindSpdSpan.innerText = cupRaceWeather.wind_speed_10m + "mph";
 } else {
-  cupWeatherH2.parentElement.innerHTML = "<p>This is no race this week.</p>";
+  cupWeatherH2.parentElement.innerHTML = "<p>There is no race this week.</p>";
   cupOffWeekOverlay.style.display = "grid";
 }
 
@@ -146,17 +171,6 @@ const oreillyRaceWeather = await nextOreillyRace.getRaceDayWeather();
 // if its during the race, change the h2 to 'LIVE' from 'GREEN FLAG'
 if (new Date() > new Date(oreillyRaceInfo.date + " " + oreillyRaceInfo.time)) {
   oreillyWeatherH2.innerText = "LIVE WEATHER:";
-}
-
-function displayTrackFacts(trackFacts) {
-  trackFacts.style.display = "grid";
-  trackFacts.style.backgroundImage = 'url("./assets/track_facts_bg.webp")';
-  // loop through the track facts and add to trackFacts element
-  nextCupRace.track.trackFacts.forEach((fact) => {
-    const p = document.createElement("p");
-    p.innerHTML = fact;
-    trackFacts.append(p);
-  });
 }
 
 // load the weather data to the dom elements
@@ -189,17 +203,46 @@ if (!oreillyRaceWeather.msg) {
 } else {
   displayTrackFacts(trackFacts);
   oreillyWeatherH2.parentElement.innerHTML =
-    "<p>This is no race this week.</p>";
+    "<p>There is no race this week.</p>";
 }
 
 // ----------------------handle the craftsman truck race
 const nextTruckRace = getNextRace(craftsmanSchedule);
 const truckRaceInfo = nextTruckRace.getRaceInfo();
+// finese a date obj to get the time str
 const truckRaceTime = new Date(
   "2000-01-01 " + truckRaceInfo.time,
 ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+//insert info in DOM
+truckRaceDateEl.innerText = truckRaceInfo.date + " " + truckRaceTime;
+truckRaceInfoEl.innerText =
+  truckRaceInfo.trackLocation + " - " + truckRaceInfo.trackLength;
+truckRaceNameEl.innerText = truckRaceInfo.raceName;
 
+// get the weather data
 const truckRaceWeather = await nextTruckRace.getRaceDayWeather();
+
+// if its during the race, change the h2 to 'LIVE' from 'GREEN FLAG'
+if (new Date() > new Date(truckRaceInfo.date + " " + truckRaceInfo.time)) {
+  truckWeatherH2.innerText = "LIVE WEATHER:";
+}
+
+// load the weather data to the dom elements
+if (!truckRaceWeather.msg) {
+  truckWeatherSpan.innerText = truckRaceWeather.weather;
+  truckTempSpan.innerText =
+    truckRaceWeather.temperature_2m +
+    truckRaceWeather.hourly_units.temperature_2m;
+  truckPrecipSpan.innerText =
+    truckRaceWeather.precipitation_probability +
+    truckRaceWeather.hourly_units.precipitation_probability;
+  truckCloudSpan.innerText =
+    truckRaceWeather.cloud_cover + truckRaceWeather.hourly_units.cloud_cover;
+  truckWindGustSpan.innerText = truckRaceWeather.wind_gusts_10m + "mph";
+  truckWindSpdSpan.innerText = truckRaceWeather.wind_speed_10m + "mph";
+} else {
+  truckWeatherH2.parentElement.innerHTML = "<p>There is no race this week.</p>";
+}
 
 console.log("cup", cupRaceWeather);
 console.log("oreilly", oreillyRaceWeather);
