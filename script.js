@@ -126,8 +126,22 @@ const nextCupRace = getNextRace(cupSchedule);
 const cupRaceInfo = nextCupRace.getRaceInfo();
 // finese a date obj to get the time str
 const cupRaceTime = formatTime(cupRaceInfo.time);
+// the date/time was fine, except on mac os the time was invalid, this may fix that
+const anotherDateObj = new Date(`${cupRaceInfo.date} ${cupRaceTime}`);
 // insert info in DOM
-cupRaceDateEl.innerText = cupRaceInfo.date + " " + cupRaceTime;
+const options = {
+  weekday: "long", // "Sunday"
+  year: "numeric", // "2026"
+  month: "long", // "March"
+  day: "numeric", // "8"
+  hour: "numeric", // "9" or "21" (depending on locale and hour12)
+  minute: "numeric", // "26"
+  hour12: true, // Use 12-hour clock (PM/AM)
+};
+cupRaceDateEl.innerText = new Intl.DateTimeFormat("en-US", options).format(
+  anotherDateObj,
+);
+// cupRaceDateEl.innerText = cupRaceInfo.date + " " + cupRaceTime;
 cupRaceInfoEl.innerText =
   cupRaceInfo.trackLocation + " - " + cupRaceInfo.trackLength;
 cupRaceNameEl.innerText = cupRaceInfo.raceName;
