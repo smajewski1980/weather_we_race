@@ -112,13 +112,20 @@ const isSameTrack = (track1, track2) => {
   return track1 === track2;
 };
 
+function formatTime(time) {
+  const formattedTime = new Date("2000-01-01 " + time).toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  // trim the leading 0 off a single digit hour
+  return formattedTime[0] === "0" ? formattedTime.slice(1) : formattedTime;
+}
+
 // ----------------------handle the cup race
 const nextCupRace = getNextRace(cupSchedule);
 const cupRaceInfo = nextCupRace.getRaceInfo();
 // finese a date obj to get the time str
-const cupRaceTime = new Date(
-  "2000-01-01 " + cupRaceInfo.time,
-).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+const cupRaceTime = formatTime(cupRaceInfo.time);
 // insert info in DOM
 cupRaceDateEl.innerText = cupRaceInfo.date + " " + cupRaceTime;
 cupRaceInfoEl.innerText =
@@ -156,9 +163,7 @@ if (!cupRaceWeather.msg) {
 const nextOreillyRace = getNextRace(oreillySchedule);
 const oreillyRaceInfo = nextOreillyRace.getRaceInfo();
 // finese a date obj to get the time str
-const oreillyRaceTime = new Date(
-  "2000-01-01 " + oreillyRaceInfo.time,
-).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+const oreillyRaceTime = formatTime(oreillyRaceInfo.time);
 //insert info in DOM
 oreillyRaceDateEl.innerText = oreillyRaceInfo.date + " " + oreillyRaceTime;
 oreillyRaceInfoEl.innerText =
@@ -210,9 +215,7 @@ if (!oreillyRaceWeather.msg) {
 const nextTruckRace = getNextRace(craftsmanSchedule);
 const truckRaceInfo = nextTruckRace.getRaceInfo();
 // finese a date obj to get the time str
-const truckRaceTime = new Date(
-  "2000-01-01 " + truckRaceInfo.time,
-).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+const truckRaceTime = formatTime(truckRaceInfo.time);
 //insert info in DOM
 truckRaceDateEl.innerText = truckRaceInfo.date + " " + truckRaceTime;
 truckRaceInfoEl.innerText =
