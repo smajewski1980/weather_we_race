@@ -113,36 +113,22 @@ const isSameTrack = (track1, track2) => {
 };
 
 function formatTime(time) {
-  const formattedTime = new Date("2000-01-01 " + time).toLocaleTimeString([], {
+  const [hours, minutes] = time.split(":").map(Number);
+  const date = new Date(2000, 0, 1, hours, minutes); // January 1, 2000
+  const formattedTime = date.toLocaleTimeString([], {
     hour: "2-digit",
     minute: "2-digit",
   });
-  // trim the leading 0 off a single digit hour
   return formattedTime[0] === "0" ? formattedTime.slice(1) : formattedTime;
 }
-
 // ----------------------handle the cup race
 const nextCupRace = getNextRace(cupSchedule);
 const cupRaceInfo = nextCupRace.getRaceInfo();
 // finese a date obj to get the time str
 const cupRaceTime = formatTime(cupRaceInfo.time);
-// the date/time was fine, except on mac os the time was invalid, this may fix that
-const anotherDateObj = new Date(`${cupRaceInfo.date} ${cupRaceTime}`);
+
 // insert info in DOM
-const options = {
-  weekday: "long", // "Sunday"
-  year: "numeric", // "2026"
-  month: "long", // "March"
-  day: "numeric", // "8"
-  hour: "numeric", // "9" or "21" (depending on locale and hour12)
-  minute: "numeric", // "26"
-  hour12: true, // Use 12-hour clock (PM/AM)
-};
-cupRaceDateEl.innerText = new Intl.DateTimeFormat(undefined, options).format(
-  anotherDateObj,
-);
-console.log(new Intl.DateTimeFormat(undefined, options).format(anotherDateObj));
-// cupRaceDateEl.innerText = cupRaceInfo.date + " " + cupRaceTime;
+cupRaceDateEl.innerText = cupRaceInfo.date + " " + cupRaceTime;
 cupRaceInfoEl.innerText =
   cupRaceInfo.trackLocation + " - " + cupRaceInfo.trackLength;
 cupRaceNameEl.innerText = cupRaceInfo.raceName;
