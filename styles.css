@@ -207,3 +207,9 @@ a {
   place-content: center;
   color: black;
 }
+
+@media screen and (width < 725px) {
+  #next-oreilly-race {
+    margin-block-start: 1.5rem;
+  }
+}

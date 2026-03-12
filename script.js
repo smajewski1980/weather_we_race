@@ -12,6 +12,7 @@ const oreillyRaceTrackLogoEl = document.querySelector(
   "#next-oreilly-race .track-logo",
 );
 const cupRaceNameEl = document.querySelector("#next-cup-race .race-name");
+const cupTrackNameEl = document.querySelector("#next-cup-race .track-name");
 const cupRaceInfoEl = document.querySelector("#next-cup-race .track-info");
 const cupRaceDateEl = document.querySelector("#next-cup-race .date");
 const cupWeatherH2 = document.querySelector(".cup-weather-info-wrapper h2");
@@ -25,6 +26,9 @@ const cupOffWeekOverlay = document.querySelector(".cup-off-week-msg");
 
 const oreillyRaceNameEl = document.querySelector(
   "#next-oreilly-race .race-name",
+);
+const oreillyTrackNameEl = document.querySelector(
+  "#next-oreilly-race .track-name",
 );
 const oreillyRaceInfoEl = document.querySelector(
   "#next-oreilly-race .track-info",
@@ -40,10 +44,8 @@ const oreillyCloudSpan = document.getElementById("oreilly-cloud-span");
 const oreillyWindSpdSpan = document.getElementById("oreilly-wind-spd-span");
 const oreillyWindGustSpan = document.getElementById("oreilly-wind-gst-span");
 const trackFacts = document.querySelector(".track-facts");
-const truckRaceInfoH2El = document.querySelector(
-  "#next-truck-race .label-wrapper h2",
-);
 const truckRaceNameEl = document.querySelector("#next-truck-race .race-name");
+const truckTrackNameEl = document.querySelector("#next-truck-race .track-name");
 const truckRaceInfoEl = document.querySelector("#next-truck-race .track-info");
 const truckRaceDateEl = document.querySelector("#next-truck-race .date");
 const truckWeatherH2 = document.querySelector(".truck-weather-info-wrapper h2");
@@ -136,6 +138,7 @@ cupRaceDateEl.innerText = cupRaceInfo.date + " " + cupRaceTime;
 cupRaceInfoEl.innerText =
   cupRaceInfo.trackLocation + " - " + cupRaceInfo.trackLength;
 cupRaceNameEl.innerText = cupRaceInfo.raceName;
+cupTrackNameEl.innerText = cupRaceInfo.trackName;
 cupRaceTrackLogoEl.src = cupRaceInfo.trackLogo;
 cupRaceTrackMainEl.src = cupRaceInfo.trackPhoto;
 
@@ -175,7 +178,7 @@ oreillyRaceDateEl.innerText = oreillyRaceInfo.date + " " + oreillyRaceTime;
 oreillyRaceInfoEl.innerText =
   oreillyRaceInfo.trackLocation + " - " + oreillyRaceInfo.trackLength;
 oreillyRaceNameEl.innerText = oreillyRaceInfo.raceName;
-
+oreillyTrackNameEl.innerText = oreillyRaceInfo.trackName;
 // get the weather data
 const oreillyRaceWeather = await nextOreillyRace.getRaceDayWeather();
 
@@ -227,7 +230,7 @@ truckRaceDateEl.innerText = truckRaceInfo.date + " " + truckRaceTime;
 truckRaceInfoEl.innerText =
   truckRaceInfo.trackLocation + " - " + truckRaceInfo.trackLength;
 truckRaceNameEl.innerText = truckRaceInfo.raceName;
-
+truckTrackNameEl.innerText = truckRaceInfo.trackName;
 // get the weather data
 const truckRaceWeather = await nextTruckRace.getRaceDayWeather();
 
