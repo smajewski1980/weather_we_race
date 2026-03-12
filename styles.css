@@ -34,6 +34,7 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   max-width: 1000px;
+  margin-block-end: 2rem;
 }
 
 h1 {
