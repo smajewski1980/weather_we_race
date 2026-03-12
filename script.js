@@ -40,6 +40,9 @@ const oreillyCloudSpan = document.getElementById("oreilly-cloud-span");
 const oreillyWindSpdSpan = document.getElementById("oreilly-wind-spd-span");
 const oreillyWindGustSpan = document.getElementById("oreilly-wind-gst-span");
 const trackFacts = document.querySelector(".track-facts");
+const truckRaceInfoH2El = document.querySelector(
+  "#next-truck-race .label-wrapper h2",
+);
 const truckRaceNameEl = document.querySelector("#next-truck-race .race-name");
 const truckRaceInfoEl = document.querySelector("#next-truck-race .track-info");
 const truckRaceDateEl = document.querySelector("#next-truck-race .date");
@@ -60,7 +63,7 @@ function getNextRace(sched) {
   const futureRaces = [];
   const pastRaces = [];
   const today = new Date();
-  let isOffWeek = false;
+  // let isOffWeek = false;
 
   sched.forEach((race) => {
     // this will track the past races, for an off cup week, we will show
@@ -80,11 +83,12 @@ function getNextRace(sched) {
   const nextRaceTimeInMs = nextRaceDateTime.getTime();
   const nowInMs = today.getTime();
   const oneWeekInMs = 6.048e8;
-  if (nextRaceTimeInMs > nowInMs + oneWeekInMs) {
-    isOffWeek = true;
-  }
+  // if (nextRaceTimeInMs > nowInMs + oneWeekInMs) {
+  //   isOffWeek = true;
+  // }
   // console.log(pastRaces[pastRaces.length - 1]);
-  return isOffWeek ? pastRaces[pastRaces.length - 1] : futureRaces[0];
+  // return isOffWeek ? pastRaces[pastRaces.length - 1] : futureRaces[0];
+  return futureRaces[0];
 }
 
 /**
@@ -156,7 +160,8 @@ if (!cupRaceWeather.msg) {
   cupWindGustSpan.innerText = cupRaceWeather.wind_gusts_10m + "mph";
   cupWindSpdSpan.innerText = cupRaceWeather.wind_speed_10m + "mph";
 } else {
-  cupWeatherH2.parentElement.innerHTML = "<p>There is no race this week.</p>";
+  cupWeatherH2.parentElement.innerHTML =
+    "<p>The next race is more than 7 days away, please check back for the weather.</p>";
   cupOffWeekOverlay.style.display = "grid";
 }
 
@@ -209,7 +214,7 @@ if (!oreillyRaceWeather.msg) {
 } else {
   displayTrackFacts(trackFacts);
   oreillyWeatherH2.parentElement.innerHTML =
-    "<p>There is no race this week.</p>";
+    "<p>The next race is more than 7 days away, please check back for the weather.</p>";
 }
 
 // ----------------------handle the craftsman truck race
@@ -245,7 +250,8 @@ if (!truckRaceWeather.msg) {
   truckWindGustSpan.innerText = truckRaceWeather.wind_gusts_10m + "mph";
   truckWindSpdSpan.innerText = truckRaceWeather.wind_speed_10m + "mph";
 } else {
-  truckWeatherH2.parentElement.innerHTML = "<p>There is no race this week.</p>";
+  truckWeatherH2.parentElement.innerHTML =
+    "<p>The next race is more than 7 days away, please check back for the weather.</p>";
 }
 
 console.log("cup", cupRaceWeather);
