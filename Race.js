@@ -36,20 +36,14 @@ class Race {
   async getRaceDayWeather() {
     const data = await this.track.get7DayWeather();
     const raceDate = new Date(this.date + " " + this.time);
-    // const raceDateOffset = new Date(raceDate).setHours(
-    //   raceDate.getHours() + 10,
-    // );
+
     const oneWeekInMs = 6.048e8;
     const raceTimeMs = raceDate.getTime();
     const currTime = new Date().getTime();
-    // const currTimeOffset = currTime + oneWeekInMs;
 
-    if (raceTimeMs - oneWeekInMs > new Date().getTime()) {
+    if (raceTimeMs - oneWeekInMs > currTime) {
       return { msg: "off week" };
     }
-    // if (raceDateOffset < Date.now()) {
-    //   return { msg: "off week" };
-    // }
 
     // if its before the start time show weather for green flag
     let idx;

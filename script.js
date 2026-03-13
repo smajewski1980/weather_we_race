@@ -164,7 +164,7 @@ if (!cupRaceWeather.msg) {
   cupWindSpdSpan.innerText = cupRaceWeather.wind_speed_10m + "mph";
 } else {
   cupWeatherH2.parentElement.innerHTML =
-    "<p>The next race is more than 7 days away, please check back for the weather.</p>";
+    "<p>Please check back for the weather.</p>";
   cupOffWeekOverlay.style.display = "grid";
 }
 
@@ -217,7 +217,7 @@ if (!oreillyRaceWeather.msg) {
 } else {
   displayTrackFacts(trackFacts);
   oreillyWeatherH2.parentElement.innerHTML =
-    "<p>The next race is more than 7 days away, please check back for the weather.</p>";
+    "<p>Please check back for the weather.</p>";
 }
 
 // ----------------------handle the craftsman truck race
@@ -254,7 +254,7 @@ if (!truckRaceWeather.msg) {
   truckWindSpdSpan.innerText = truckRaceWeather.wind_speed_10m + "mph";
 } else {
   truckWeatherH2.parentElement.innerHTML =
-    "<p>The next race is more than 7 days away, please check back for the weather.</p>";
+    "<p>Please check back for the weather.</p>";
 }
 
 console.log("cup", cupRaceWeather);
