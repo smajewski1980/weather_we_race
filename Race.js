@@ -36,8 +36,8 @@ class Race {
   async getRaceDayWeather() {
     const data = await this.track.get7DayWeather();
     const raceDate = new Date(this.date + " " + this.time);
-
-    const oneWeekInMs = 6.048e8;
+    // this is actually 6 days in milliseconds
+    const oneWeekInMs = 5.184e8;
     const raceTimeMs = raceDate.getTime();
     const currTime = new Date().getTime();
 
