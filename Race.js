@@ -38,10 +38,14 @@ class Race {
     const raceDate = new Date(this.date + " " + this.time);
     // this is actually 6 days in milliseconds
     const oneWeekInMs = 5.184e8;
-    const raceTimeMs = raceDate.getTime();
     const currTime = new Date().getTime();
 
-    if (raceTimeMs - oneWeekInMs > currTime) {
+    const adjDateForOffWkCheck = new Date(
+      this.date + " " + "00:00:00 GMT -0400",
+    );
+    const adjraceTimeMs = adjDateForOffWkCheck.getTime();
+
+    if (adjraceTimeMs - oneWeekInMs > currTime) {
       return { msg: "off week" };
     }
 
