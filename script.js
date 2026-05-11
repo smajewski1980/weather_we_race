@@ -134,7 +134,8 @@ const cupRaceInfo = nextCupRace.getRaceInfo();
 const cupRaceTime = formatTime(cupRaceInfo.time);
 
 // insert info in DOM
-cupRaceDateEl.innerText = cupRaceInfo.date + " " + cupRaceTime;
+cupRaceDateEl.innerHTML =
+  cupRaceInfo.date + " " + "<span>" + cupRaceTime + "</span>";
 cupRaceInfoEl.innerText =
   cupRaceInfo.trackLocation + " - " + cupRaceInfo.trackLength;
 cupRaceNameEl.innerText = cupRaceInfo.raceName;
@@ -174,7 +175,8 @@ const oreillyRaceInfo = nextOreillyRace.getRaceInfo();
 // finese a date obj to get the time str
 const oreillyRaceTime = formatTime(oreillyRaceInfo.time);
 //insert info in DOM
-oreillyRaceDateEl.innerText = oreillyRaceInfo.date + " " + oreillyRaceTime;
+oreillyRaceDateEl.innerHTML =
+  oreillyRaceInfo.date + " " + "<span>" + oreillyRaceTime + "</span>";
 oreillyRaceInfoEl.innerText =
   oreillyRaceInfo.trackLocation + " - " + oreillyRaceInfo.trackLength;
 oreillyRaceNameEl.innerText = oreillyRaceInfo.raceName;
@@ -226,7 +228,8 @@ const truckRaceInfo = nextTruckRace.getRaceInfo();
 // finese a date obj to get the time str
 const truckRaceTime = formatTime(truckRaceInfo.time);
 //insert info in DOM
-truckRaceDateEl.innerText = truckRaceInfo.date + " " + truckRaceTime;
+truckRaceDateEl.innerHTML =
+  truckRaceInfo.date + " " + "<span>" + truckRaceTime + "</span>";
 truckRaceInfoEl.innerText =
   truckRaceInfo.trackLocation + " - " + truckRaceInfo.trackLength;
 truckRaceNameEl.innerText = truckRaceInfo.raceName;

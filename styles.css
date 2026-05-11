@@ -214,3 +214,13 @@ a {
     margin-block-start: 1.5rem;
   }
 }
+
+#next-cup-race .date span {
+  font-size: 1.5rem;
+}
+#next-oreilly-race .date span {
+  font-size: 1.5rem;
+}
+#next-truck-race .date span {
+  font-size: 1.5rem;
+}

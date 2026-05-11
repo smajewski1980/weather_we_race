@@ -76,7 +76,7 @@ const Race12 = new Race(
 const Race13 = new Race(
   "NASCAR All-Star Race",
   "Sunday May 17, 2026",
-  "15:00:00 GMT-0500",
+  "13:00:00 GMT-0500",
   t.Dover,
 );
 const Race14 = new Race(
