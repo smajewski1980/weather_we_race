@@ -11,10 +11,10 @@ const oreillyRaceTrackMainEl = document.querySelector(
 const oreillyRaceTrackLogoEl = document.querySelector(
   "#next-oreilly-race .track-logo",
 );
-const cupRaceNameEl = document.querySelector("#next-cup-race .race-name");
-const cupTrackNameEl = document.querySelector("#next-cup-race .track-name");
-const cupRaceInfoEl = document.querySelector("#next-cup-race .track-info");
-const cupRaceDateEl = document.querySelector("#next-cup-race .date");
+const cupRaceNameEl = document.querySelector(".weather-section .race-name");
+const cupTrackNameEl = document.querySelector(".weather-section .track-name");
+const cupRaceInfoEl = document.querySelector(".weather-section .track-info");
+const cupRaceDateEl = document.querySelector(".weather-section .date");
 const cupWeatherH2 = document.querySelector(".cup-weather-info-wrapper h2");
 const cupWeatherSpan = document.getElementById("cup-weather-span");
 const cupTempSpan = document.getElementById("cup-temp-span");
@@ -25,15 +25,17 @@ const cupWindGustSpan = document.getElementById("cup-wind-gst-span");
 const cupOffWeekOverlay = document.querySelector(".cup-off-week-msg");
 
 const oreillyRaceNameEl = document.querySelector(
-  "#next-oreilly-race .race-name",
+  ".weather-section #next-oreilly-race .race-name",
 );
 const oreillyTrackNameEl = document.querySelector(
-  "#next-oreilly-race .track-name",
+  ".weather-section #next-oreilly-race .track-name",
 );
 const oreillyRaceInfoEl = document.querySelector(
-  "#next-oreilly-race .track-info",
+  ".weather-section #next-oreilly-race .track-info",
 );
-const oreillyRaceDateEl = document.querySelector("#next-oreilly-race .date");
+const oreillyRaceDateEl = document.querySelector(
+  ".weather-section #next-oreilly-race .date",
+);
 const oreillyWeatherH2 = document.querySelector(
   ".oreilly-weather-info-wrapper h2",
 );
@@ -44,10 +46,18 @@ const oreillyCloudSpan = document.getElementById("oreilly-cloud-span");
 const oreillyWindSpdSpan = document.getElementById("oreilly-wind-spd-span");
 const oreillyWindGustSpan = document.getElementById("oreilly-wind-gst-span");
 const trackFacts = document.querySelector(".track-facts");
-const truckRaceNameEl = document.querySelector("#next-truck-race .race-name");
-const truckTrackNameEl = document.querySelector("#next-truck-race .track-name");
-const truckRaceInfoEl = document.querySelector("#next-truck-race .track-info");
-const truckRaceDateEl = document.querySelector("#next-truck-race .date");
+const truckRaceNameEl = document.querySelector(
+  ".weather-section #next-truck-race .race-name",
+);
+const truckTrackNameEl = document.querySelector(
+  ".weather-section #next-truck-race .track-name",
+);
+const truckRaceInfoEl = document.querySelector(
+  ".weather-section #next-truck-race .track-info",
+);
+const truckRaceDateEl = document.querySelector(
+  ".weather-section #next-truck-race .date",
+);
 const truckWeatherH2 = document.querySelector(".truck-weather-info-wrapper h2");
 const truckWeatherSpan = document.getElementById("truck-weather-span");
 const truckTempSpan = document.getElementById("truck-temp-span");
