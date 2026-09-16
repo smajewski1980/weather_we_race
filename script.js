@@ -135,7 +135,10 @@ function formatTime(time) {
     hour: "2-digit",
     minute: "2-digit",
   });
-  return formattedTime[0] === "0" ? formattedTime.slice(1) : formattedTime;
+
+  return formattedTime[0] === "0"
+    ? `🟢${formattedTime.slice(1, formattedTime.length - 2)}`
+    : `🟢${formattedTime.slice(0, formattedTime.length - 2)}`;
 }
 // ----------------------handle the cup race
 const nextCupRace = getNextRace(cupSchedule);
@@ -145,7 +148,7 @@ const cupRaceTime = formatTime(cupRaceInfo.time);
 
 // insert info in DOM
 cupRaceDateEl.innerHTML =
-  cupRaceInfo.date + " " + "<span>" + cupRaceTime + "</span>";
+  cupRaceInfo.date + " " + "<span id='time-span'>" + cupRaceTime + "</span>";
 cupRaceInfoEl.innerText =
   cupRaceInfo.trackLocation + " - " + cupRaceInfo.trackLength;
 cupRaceNameEl.innerText = cupRaceInfo.raceName;
@@ -158,7 +161,7 @@ const cupRaceWeather = await nextCupRace.getRaceDayWeather();
 
 // if its during the race, change the h2 to 'LIVE' from 'GREEN FLAG'
 if (new Date() > new Date(cupRaceInfo.date + " " + cupRaceInfo.time)) {
-  cupWeatherH2.innerText = "LIVE WEATHER:";
+  cupWeatherH2.innerText = "LIVE:";
 }
 
 // load the weather data to the dom elements
@@ -186,7 +189,11 @@ const oreillyRaceInfo = nextOreillyRace.getRaceInfo();
 const oreillyRaceTime = formatTime(oreillyRaceInfo.time);
 //insert info in DOM
 oreillyRaceDateEl.innerHTML =
-  oreillyRaceInfo.date + " " + "<span>" + oreillyRaceTime + "</span>";
+  oreillyRaceInfo.date +
+  " " +
+  "<span id='time-span'>" +
+  oreillyRaceTime +
+  "</span>";
 oreillyRaceInfoEl.innerText =
   oreillyRaceInfo.trackLocation + " - " + oreillyRaceInfo.trackLength;
 oreillyRaceNameEl.innerText = oreillyRaceInfo.raceName;
@@ -239,7 +246,11 @@ const truckRaceInfo = nextTruckRace.getRaceInfo();
 const truckRaceTime = formatTime(truckRaceInfo.time);
 //insert info in DOM
 truckRaceDateEl.innerHTML =
-  truckRaceInfo.date + " " + "<span>" + truckRaceTime + "</span>";
+  truckRaceInfo.date +
+  " " +
+  "<span id='time-span'>" +
+  truckRaceTime +
+  "</span>";
 truckRaceInfoEl.innerText =
   truckRaceInfo.trackLocation + " - " + truckRaceInfo.trackLength;
 truckRaceNameEl.innerText = truckRaceInfo.raceName;
