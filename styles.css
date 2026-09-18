@@ -253,3 +253,7 @@ a {
 #time-span {
   font-style: normal;
 }
+
+.check-back {
+  margin-block-start: 1rem;
+}

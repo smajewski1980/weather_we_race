@@ -15,7 +15,7 @@ const cupRaceNameEl = document.querySelector(".weather-section .race-name");
 const cupTrackNameEl = document.querySelector(".weather-section .track-name");
 const cupRaceInfoEl = document.querySelector(".weather-section .track-info");
 const cupRaceDateEl = document.querySelector(".weather-section .date");
-const cupWeatherH2 = document.querySelector(".cup-weather-info-wrapper h2");
+const cupWeatherH3 = document.querySelector(".cup-weather-info-wrapper h3");
 const cupWeatherSpan = document.getElementById("cup-weather-span");
 const cupTempSpan = document.getElementById("cup-temp-span");
 const cupPrecipSpan = document.getElementById("cup-precip-span");
@@ -36,8 +36,8 @@ const oreillyRaceInfoEl = document.querySelector(
 const oreillyRaceDateEl = document.querySelector(
   ".weather-section #next-oreilly-race .date",
 );
-const oreillyWeatherH2 = document.querySelector(
-  ".oreilly-weather-info-wrapper h2",
+const oreillyWeatherH3 = document.querySelector(
+  ".oreilly-weather-info-wrapper h3",
 );
 const oreillyWeatherSpan = document.getElementById("oreilly-weather-span");
 const oreillyTempSpan = document.getElementById("oreilly-temp-span");
@@ -58,7 +58,7 @@ const truckRaceInfoEl = document.querySelector(
 const truckRaceDateEl = document.querySelector(
   ".weather-section #next-truck-race .date",
 );
-const truckWeatherH2 = document.querySelector(".truck-weather-info-wrapper h2");
+const truckWeatherH3 = document.querySelector(".truck-weather-info-wrapper h3");
 const truckWeatherSpan = document.getElementById("truck-weather-span");
 const truckTempSpan = document.getElementById("truck-temp-span");
 const truckPrecipSpan = document.getElementById("truck-precip-span");
@@ -161,7 +161,7 @@ const cupRaceWeather = await nextCupRace.getRaceDayWeather();
 
 // if its during the race, change the h2 to 'LIVE' from 'GREEN FLAG'
 if (new Date() > new Date(cupRaceInfo.date + " " + cupRaceInfo.time)) {
-  cupWeatherH2.innerText = "LIVE:";
+  cupWeatherH3.innerText = "LIVE:";
 }
 
 // load the weather data to the dom elements
@@ -177,8 +177,8 @@ if (!cupRaceWeather.msg) {
   cupWindGustSpan.innerText = cupRaceWeather.wind_gusts_10m + "mph";
   cupWindSpdSpan.innerText = cupRaceWeather.wind_speed_10m + "mph";
 } else {
-  cupWeatherH2.parentElement.innerHTML =
-    "<p>Please check back for the weather.</p>";
+  cupWeatherH3.parentElement.innerHTML =
+    "<p class='check-back' >Please check back for the weather.</p>";
   cupOffWeekOverlay.style.display = "grid";
 }
 
@@ -203,7 +203,7 @@ const oreillyRaceWeather = await nextOreillyRace.getRaceDayWeather();
 
 // if its during the race, change the h2 to 'LIVE' from 'GREEN FLAG'
 if (new Date() > new Date(oreillyRaceInfo.date + " " + oreillyRaceInfo.time)) {
-  oreillyWeatherH2.innerText = "LIVE WEATHER:";
+  oreillyWeatherH3.innerText = "LIVE WEATHER:";
 }
 
 // load the weather data to the dom elements
@@ -235,8 +235,8 @@ if (!oreillyRaceWeather.msg) {
   oreillyWindSpdSpan.innerText = oreillyRaceWeather.wind_speed_10m + "mph";
 } else {
   displayTrackFacts(trackFacts);
-  oreillyWeatherH2.parentElement.innerHTML =
-    "<p>Please check back for the weather.</p>";
+  oreillyWeatherH3.parentElement.innerHTML =
+    "<p class='check-back' >Please check back for the weather.</p>";
 }
 
 // ----------------------handle the craftsman truck race
@@ -260,7 +260,7 @@ const truckRaceWeather = await nextTruckRace.getRaceDayWeather();
 
 // if its during the race, change the h2 to 'LIVE' from 'GREEN FLAG'
 if (new Date() > new Date(truckRaceInfo.date + " " + truckRaceInfo.time)) {
-  truckWeatherH2.innerText = "LIVE WEATHER:";
+  truckWeatherH3.innerText = "LIVE WEATHER:";
 }
 
 // load the weather data to the dom elements
@@ -277,8 +277,8 @@ if (!truckRaceWeather.msg) {
   truckWindGustSpan.innerText = truckRaceWeather.wind_gusts_10m + "mph";
   truckWindSpdSpan.innerText = truckRaceWeather.wind_speed_10m + "mph";
 } else {
-  truckWeatherH2.parentElement.innerHTML =
-    "<p>Please check back for the weather.</p>";
+  truckWeatherH3.parentElement.innerHTML =
+    "<p class='check-back' >Please check back for the weather.</p>";
 }
 
 console.log("cup", cupRaceWeather);
